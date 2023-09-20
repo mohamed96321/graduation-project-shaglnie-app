@@ -1,0 +1,209 @@
+<div *ngIf="language === 'arb'" class="container">
+  <form class="row" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="col-md">
+      <div class="form-group">
+        <label for=""
+          ><img src="../../assets/img/download.png" alt="" />الوظيفه</label
+        >
+        <input
+          type="text"
+          placeholder="الوظيفه"
+          [ngModel]="userData.job"
+          name="job"
+          required
+          #job="ngModel"
+          minlength="4"
+        />
+        <p *ngIf="job.errors && job.touched">
+          <span *ngIf="job.errors.required">الوظيفه مطلوبه</span>
+          <span *ngIf="job.errors.minlength">الوظيفه خاطئه</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md">
+      <label for=""
+        ><img src="../../assets/img/locjpg.jpg" alt="" />المحافظه</label
+      >
+      <input
+        type="text"
+        placeholder="المحافظه"
+        [ngModel]="userData.userBigCity"
+        name="bigCity"
+        required
+        minlength="5"
+        #bigCity="ngModel"
+      />
+      <p *ngIf="bigCity.errors && bigCity.touched">
+        <span *ngIf="bigCity.errors.required">المحافظه مطلوبه</span>
+        <span *ngIf="bigCity.errors.minlength">المحافظه خاطئه</span>
+      </p>
+    </div>
+    <br />
+    <div class="col-md">
+      <label for=""
+        ><img src="../../assets/img/125296.png" alt="" />المدينه</label
+      >
+      <input
+        type="text"
+        placeholder="المدينه"
+        [ngModel]="userData.userCity"
+        name="city"
+        required
+        minlength="5"
+        #city="ngModel"
+      />
+      <p *ngIf="city.errors && city.touched">
+        <span *ngIf="city.errors.required">المدينه مطلوبه</span>
+        <span *ngIf="city.errors.minlength">المدينه خاطئه</span>
+      </p>
+    </div>
+    <div style="margin-right: 20px">
+      <input type="checkbox" name="isWorker" [ngModel]="false" />
+      <label for="">البحث كحرفي</label>
+    </div>
+    <div>
+      <button *ngIf="f.valid"><i class="fa fa-search"></i></button>
+    </div>
+  </form>
+</div>
+<!--## RESUALT OF SEARCH-->
+<div class="container" *ngIf="searched && language === 'arb'">
+  <div class="row justify-content-center align-items-center flex-column">
+    <div *ngIf="selectedPosts.length > 0" class="col-md-6">
+      <h6 class="text-center">
+        تم العثور علي
+        <strong style="color: var(--mainColor)"
+          >{{ selectedPosts.length }} وظيفه
+        </strong>
+      </h6>
+      <app-posts-list [posts]="selectedPosts"></app-posts-list>
+    </div>
+    <div *ngIf="selectedUsers.length > 0" class="col-md-6">
+      <h6>
+        تم العثور علي {{ selectedUsers.length }} {{ selectedUsers[0].job }}
+      </h6>
+      <app-users-search-list [users]="selectedUsers"></app-users-search-list>
+    </div>
+    <div
+      *ngIf="selectedPosts.length === 0 && selectedUsers.length === 0"
+      class="col-md-6"
+    >
+      <app-alert-danger
+        [errorMessage]="'تعذر الحصول علي نتائج'"
+      ></app-alert-danger>
+    </div>
+  </div>
+</div>
+<!--## RESUALT OF SEARCH-->
+<!--## NOT SEARCHED YET-->
+<div class="text-center" *ngIf="!searched && language === 'arb'">
+  <img src="../../assets/img/search_def.jpg" width="350px" alt="" />
+  <h6>ابحث عن وظيفتك</h6>
+</div>
+<!--#####################################-->
+<!--#####################################-->
+<!--#####################################-->
+
+<div
+  *ngIf="language === 'eng'"
+  class="container"
+  style="text-align: left; direction: ltr"
+>
+  <form class="row" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="col-md">
+      <div class="form-group">
+        <label for=""
+          ><img src="../../assets/img/download.png" alt="" /> job</label
+        >
+        <input
+          type="text"
+          placeholder="job..."
+          [ngModel]="userData.job"
+          name="job"
+          required
+          #job="ngModel"
+          minlength="4"
+        />
+        <p *ngIf="job.errors && job.touched">
+          <span *ngIf="job.errors.required">job is required</span>
+          <span *ngIf="job.errors.minlength">unknow job</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md">
+      <label for=""
+        ><img src="../../assets/img/locjpg.jpg" alt="" /> state</label
+      >
+      <input
+        type="text"
+        placeholder="state..."
+        [ngModel]="userData.userBigCity"
+        name="bigCity"
+        required
+        minlength="5"
+        #bigCity="ngModel"
+      />
+      <p *ngIf="bigCity.errors && bigCity.touched">
+        <span *ngIf="bigCity.errors.required">state is required</span>
+        <span *ngIf="bigCity.errors.minlength">unknow sate</span>
+      </p>
+    </div>
+    <br />
+    <div class="col-md">
+      <label for=""
+        ><img src="../../assets/img/125296.png" alt="" /> city</label
+      >
+      <input
+        type="text"
+        placeholder="city..."
+        [ngModel]="userData.userCity"
+        name="city"
+        required
+        minlength="5"
+        #city="ngModel"
+      />
+      <p *ngIf="city.errors && city.touched">
+        <span *ngIf="city.errors.required">city is required</span>
+        <span *ngIf="city.errors.minlength">unknown city</span>
+      </p>
+    </div>
+    <div style="margin-right: 20px">
+      <input type="checkbox" name="isWorker" [ngModel]="false" />
+      <label for="">search as worker</label>
+    </div>
+    <div>
+      <button *ngIf="f.valid"><i class="fa fa-search"></i></button>
+    </div>
+  </form>
+</div>
+<!--## RESUALT OF SEARCH-->
+<div class="container" *ngIf="searched && language === 'eng'">
+  <div class="row justify-content-center align-items-center flex-column">
+    <div *ngIf="selectedPosts.length > 0" class="col-md-6">
+      <h6 class="text-center">
+        founded job
+        <strong style="color: var(--mainColor)"
+          >{{ selectedPosts.length }} {{ selectedPosts[0].job }}
+        </strong>
+      </h6>
+      <app-posts-list [posts]="selectedPosts"></app-posts-list>
+    </div>
+    <div *ngIf="selectedUsers.length > 0" class="col-md-6">
+      <app-users-search-list [users]="selectedUsers"></app-users-search-list>
+    </div>
+    <div
+      *ngIf="selectedPosts.length === 0 && selectedUsers.length === 0"
+      class="col-md-6"
+    >
+      <app-alert-danger
+        [errorMessage]="'sorry no jobs yet '"
+      ></app-alert-danger>
+    </div>
+  </div>
+</div>
+<!--## RESUALT OF SEARCH-->
+<!--## NOT SEARCHED YET-->
+<div class="text-center" *ngIf="!searched && language === 'eng'">
+  <img src="../../assets/img/search_def.jpg" width="350px" alt="" />
+  <h6>search for your job</h6>
+</div>

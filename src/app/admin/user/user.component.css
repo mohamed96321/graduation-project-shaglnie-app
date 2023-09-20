@@ -1,0 +1,31 @@
+.navbar {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.navbar li {
+  margin-right: 25px;
+  cursor: pointer;
+}
+.navbar li:hover a {
+  color: var(--mainColor);
+}
+.navbar li.active a {
+  color: var(--mainColor);
+}
+table tr td a {
+  color: #000;
+  text-decoration: none;
+}
+form input {
+  width: 75%;
+  float: right;
+}
+form button {
+  width: 20%;
+  float: left;
+  background-color: var(--mainColor);
+  color: #fff;
+}
+input.ng-invalid.ng-touched {
+  border: 1.5px solid #f00;
+}

@@ -1,0 +1,68 @@
+.post-comments {
+  /* height: 640px;*/
+  /*scroll-behavior: smooth;*/
+  scrollbar-color: #00f !important;
+  /* overflow-x: hidden;*/
+  margin-bottom: 50px;
+  padding: 25px;
+}
+.single-comment header {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+.single-comment {
+  margin-bottom: 25px;
+  box-shadow: 1px 1px 5px #ccc;
+  border-radius: 20px;
+  padding: 12.5px;
+}
+.single-comment header > img {
+  float: right;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+.single-comment header > h6 {
+  margin-bottom: 0px;
+  margin-bottom: 5px;
+}
+.single-comment header > span {
+  font-size: 12px;
+  display: block;
+}
+.single-comment p {
+  position: relative;
+  background-color: rgb(239, 239, 239);
+  width: fit-content;
+  padding: 10px 25px;
+  border-radius: 20px;
+}
+.single-comment p:before {
+  position: absolute;
+  right: 13px;
+  top: -20px;
+  content: "";
+  display: block;
+  height: 20px;
+  width: 20px;
+  border-width: 12px;
+  border-style: solid;
+  border-color: transparent transparent rgb(239, 239, 239) transparent;
+}
+.single-comment .commentImages > img {
+  height: 120px;
+  width: 110px;
+  border-radius: 20px;
+  margin-left: 5px;
+}
+.deleteIcon {
+  text-align: left;
+  padding-left: 10px;
+}
+.deleteIcon a {
+  cursor: pointer;
+}
+.engVersion .single-comment p:before {
+  left: 20px !important;
+}

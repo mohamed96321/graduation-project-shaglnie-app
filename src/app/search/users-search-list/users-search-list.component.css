@@ -1,0 +1,43 @@
+a {
+  text-decoration: none;
+  border: none;
+  height: 70px;
+  width: 100%;
+  display: block;
+  background-color: transparent;
+  box-shadow: 1px 1px 5px #ccc;
+  margin-bottom: 50px;
+  padding: 0px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+a > div.link-content {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  color: rgb(0 0 0);
+}
+a > div.link-content div.user-img {
+  height: 70px;
+  width: 70px;
+  float: right;
+  margin-left: 10px;
+}
+a > div.link-content div.user-img img {
+  height: 100%;
+  width: 100%;
+}
+a > div.link-content div.user-info,
+a > div.link-content div.user-address {
+  width: 200px;
+  float: right;
+  padding-top: 5px;
+  margin-right: 20px;
+}
+
+a > div.link-content div.user-address {
+  line-height: 70px;
+  height: 100%;
+  width: 200px;
+}

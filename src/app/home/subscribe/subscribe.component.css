@@ -1,0 +1,69 @@
+/*subscribe STYLE CSS ########################################################*/
+
+section {
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.container .row > div {
+  margin-bottom: 25px;
+}
+.container .row > div > div {
+  box-shadow: 1px 1px 5px #ccc;
+  padding: 25px;
+}
+.subscribe h1 {
+  color: var(--mainColor);
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+.subscribe p {
+  color: #787878;
+  margin-bottom: 50px;
+}
+.subscribe .sub-content-container {
+  box-shadow: none !important;
+}
+
+.subscribe .container .row > div {
+  margin-bottom: 30px;
+}
+.subscribe form {
+  height: 50px;
+  border: 1px solid var(--mainColor);
+  border-radius: 30px;
+  overflow: hidden;
+  box-sizing: content-box !important;
+}
+.subscribe form > div {
+  position: relative;
+  float: right;
+  height: 100%;
+}
+.subscribe form > div > i {
+  position: absolute;
+  right: 30px;
+  top: 18px;
+  color: var(--mainColor);
+}
+
+.subscribe form input,
+.subscribe form button {
+  float: right;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.subscribe form input {
+  text-indent: 50px;
+  outline: none !important;
+}
+.subscribe img {
+  height: 100%;
+  width: 100%;
+}
+.subscribe form button {
+  background-color: var(--mainColor);
+  color: #ffffff;
+  border-radius: 0;
+}

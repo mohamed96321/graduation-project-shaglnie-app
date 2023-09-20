@@ -1,0 +1,34 @@
+<section [ngStyle]="{ direction: language === 'arb' ? 'rtl' : 'ltr' }">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="post">
+          <app-posts-list
+            [posts]="[post]"
+            [showPostControls]="false"
+          ></app-posts-list>
+          <div class="create-comment">
+            <app-create-comment [postId]="post._id"></app-create-comment>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="comments-list">
+          <app-comments-list></app-comments-list>
+        </div>
+        <div *ngIf="postComments.length === 0" style="padding: 25px">
+          <h6
+            [ngStyle]="{ textAlign: language === 'arb' ? 'right' : 'left' }"
+            [textContent]="
+              language === 'arb'
+                ? 'كن اول من يعلق علي ما نشره'
+                : 'be first to react'
+            "
+          >
+            <strong>{{ post.creator.userName }}</strong>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

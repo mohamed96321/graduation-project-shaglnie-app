@@ -1,0 +1,188 @@
+<div *ngIf="language === 'arb'">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 userData">
+        <app-profile-data [userData]="userData"></app-profile-data>
+        <button
+          *ngIf="isAuth && !isAdminSaved"
+          type="button"
+          class="btn btn-danger modalBtn"
+          data-toggle="modal"
+          data-target="#reportModal"
+        >
+          شكوي ضد {{ userData.userName }}
+        </button>
+        <button
+          *ngIf="isAdminSaved"
+          type="button"
+          class="btn btn-danger modalBtn"
+          (click)="deleteUser()"
+        >
+          <i class="fa fa-trash"></i> حذف الحساب
+        </button>
+        <button
+          *ngIf="isAdminSaved && userData.accepted === false"
+          type="button"
+          class="btn btn-light modalBtn"
+          (click)="acceptWorker()"
+        >
+          <i class="fa fa-user-plus"></i> اضافه
+        </button>
+      </div>
+
+      <div
+        *ngIf="isAdminSaved && userData.accepted === false"
+        class="col-md-6 imgIdentity"
+      >
+        <h6>
+          من اعمال
+          <strong> {{ userData.userName }}</strong>
+        </h6>
+        <img
+          *ngFor="let img of userData.workerIdentityImages"
+          width="200px"
+          height="200px"
+          style="float: right"
+          [src]="img"
+          alt=""
+        />
+      </div>
+      <div class="col-md-6 userPosts">
+        <app-posts-list [posts]="userPosts"></app-posts-list>
+      </div>
+    </div>
+  </div>
+  <section class="user-testimonials">
+    <h5 class="text-center">
+      ماذا قالو عن
+      <strong style="color: var(--mainColor)">{{ userData.userName }}</strong>
+    </h5>
+    <app-testimonial [testimonials]="userReviews"></app-testimonial>
+  </section>
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="reportModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form (ngSubmit)="onAddReport(f)" #f="ngForm">
+          <div class="modal-body">
+            <textarea
+              required
+              placeholder="كتابه الشكوي"
+              name="reportMessage"
+              ngModel
+              #reportMessage="ngModel"
+            ></textarea>
+          </div>
+          <div class="modal-footer">
+            <button *ngIf="f.valid" type="submit" class="btn btn-secondary">
+              ارسال
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--=> end modal-->
+</div>
+<!--##########################################################################################-->
+<div *ngIf="language === 'eng'">
+  <div class="container" style="direction: ltr">
+    <div class="row justify-content-center">
+      <div class="col-md-6 userData">
+        <app-profile-data [userData]="userData"></app-profile-data>
+        <button
+          *ngIf="isAuth && !isAdminSaved"
+          type="button"
+          class="btn btn-danger modalBtn"
+          data-toggle="modal"
+          data-target="#reportModal"
+          style="direction: ltr ; float: left;"
+        >
+          report to {{ userData.userName }}
+        </button>
+        <button
+          *ngIf="isAdminSaved"
+          type="button"
+          class="btn btn-danger modalBtn"
+          (click)="deleteUser()"
+        >
+          <i class="fa fa-trash"></i> delete account
+        </button>
+        <button
+          *ngIf="isAdminSaved && userData.accepted === false"
+          type="button"
+          class="btn btn-light modalBtn"
+          (click)="acceptWorker()"
+        >
+          <i class="fa fa-user-plus"></i> accept account
+        </button>
+      </div>
+
+      <div
+        *ngIf="isAdminSaved && userData.accepted === false"
+        class="col-md-6 imgIdentity"
+      >
+        <h6>
+          user's works
+          <strong> {{ userData.userName }}</strong>
+        </h6>
+        <img
+          *ngFor="let img of userData.workerIdentityImages"
+          width="200px"
+          height="200px"
+          style="float: right"
+          [src]="img"
+          alt=""
+        />
+      </div>
+      <div class="col-md-6 userPosts">
+        <app-posts-list [posts]="userPosts"></app-posts-list>
+      </div>
+    </div>
+  </div>
+  <section class="user-testimonials">
+    <h5 class="text-center" style="direction: ltr">
+      users's reviews about
+      <strong style="color: var(--mainColor)">{{ userData.userName }}</strong>
+    </h5>
+    <app-testimonial [testimonials]="userReviews"></app-testimonial>
+  </section>
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="reportModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document" style="text-align: left; direction: ltr;">
+      <div class="modal-content">
+        <form (ngSubmit)="onAddReport(f)" #f="ngForm">
+          <div class="modal-body">
+            <textarea
+              required
+              placeholder="report description..."
+              name="reportMessage"
+              ngModel
+              #reportMessage="ngModel"
+            ></textarea>
+          </div>
+          <div class="modal-footer">
+            <button *ngIf="f.valid" type="submit" class="btn btn-secondary">
+              send
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--=> end modal-->
+</div>

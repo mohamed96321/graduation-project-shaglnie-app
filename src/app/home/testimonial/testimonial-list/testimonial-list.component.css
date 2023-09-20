@@ -1,0 +1,28 @@
+.carousel {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  height: 300px;
+}
+.carousel .carousel-inner,
+.carousel .carousel-inner .carousel-item {
+  height: 200px;
+  width: 100%;
+}
+.carousel a {
+  color: var(--mainColor);
+  font-size: 18px;
+}
+img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  border: 1px dashed #ffffff;
+}
+p {
+  color: #787878;
+}
+h6 {
+  color: var(--mainColor);
+  margin: 20px auto;
+}

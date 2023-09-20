@@ -1,0 +1,103 @@
+.container {
+  margin-top: 25px;
+}
+a {
+  cursor: pointer;
+}
+span {
+  color: #f00;
+  font-size: 14px;
+  font-weight: bold;
+}
+.form-group {
+  position: relative;
+}
+textarea {
+  line-height: normal;
+  display: block;
+  width: 100%;
+  height: 100px;
+  border-radius: 30px;
+  border: none;
+  background-color: aliceblue;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+
+form img,
+div > label > i {
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+}
+form > div {
+  width: 100%;
+  margin: 20px 0;
+}
+input {
+  display: block;
+  width: 100%;
+  width: 100%;
+  background-color: aliceblue;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+  text-indent: 10px;
+}
+input:focus {
+  outline: none;
+  border: none;
+}
+input[type="checkbox"] {
+  display: inline-block;
+  width: 20px;
+  height: auto;
+  margin-top: 10px;
+}
+div > label > i {
+  color: var(--mainColor);
+}
+div.form-group > i {
+  position: absolute;
+  top: 65%;
+  right: 90%;
+  color: green;
+}
+i.fa.fa-exclamation-circle {
+  color: #f00 !important;
+}
+.engVersion div.form-group > i {
+  right: 5% !important;
+}
+form button {
+  display: inline-block;
+  margin-right: 20px;
+  height: 30px;
+  width: 120px;
+  background-color: #1c7ed6;
+  color: #ffffff;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+}
+.images-preview > img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  float: right;
+  margin-top: 20px;
+}
+.create-post-navigations {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+picture {
+  width: 100%;
+}
+app-loading {
+  position: absolute;
+  left: 47%;
+  bottom: 50px;
+  margin: auto;
+}

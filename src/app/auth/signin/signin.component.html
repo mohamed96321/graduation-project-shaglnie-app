@@ -1,0 +1,188 @@
+<section *ngIf="language === 'arb'">
+  <div class="container">
+    <div class="text-center form-header">
+      <img
+        src="../../../assets/img/user-login.png"
+        alt=""
+        style="height: 70px; width: 70px"
+      />
+      <h3>تسجيل دخول</h3>
+    </div>
+    <div class="row justify-content-center align-items-center flex-column">
+      <div class="col-xs-8 col-sm-8 col-md-4">
+        <app-loading class="text-center" *ngIf="loading"></app-loading>
+        <app-alert-danger
+          *ngIf="!loading && errorMsg"
+          [errorMessage]="errorMsg"
+          style="margin: 10px auto"
+        ></app-alert-danger>
+      </div>
+      <div class="col-xs-6 col-sm-12 col-md-4">
+        <form (ngSubmit)="onSignin(f)" #f="ngForm">
+          <div class="form-group">
+            <i class="fa fa-envelope-open"></i>
+            <input
+              class="form-control"
+              type="email"
+              placeholder="البريد الاكتروني"
+              name="userEmail"
+              [ngModel]="signinData.userEmail"
+              required
+              email
+              #email="ngModel"
+            />
+            <i class="fa fa-check" *ngIf="email.valid && email.touched"></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="email.invalid && email.touched"
+            ></i>
+          </div>
+          <div class="input-errors" *ngIf="email.invalid && email.touched">
+            <p>
+              <span *ngIf="email.errors.required">الايميل مطلوب</span>
+              <span *ngIf="email.errors.email">الايميل غير صحيح</span>
+            </p>
+          </div>
+          <div class="form-group">
+            <i class="fa fa-key"></i>
+            <input
+              class="form-control"
+              type="password"
+              placeholder="الرقم السري"
+              name="userPassword"
+              [ngModel]="signinData.userPassword"
+              required
+              #password="ngModel"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="password.valid && password.touched"
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="password.invalid && password.touched"
+            ></i>
+          </div>
+          <div
+            *ngIf="password.invalid && password.touched"
+            class="input-errors"
+          >
+            <p>
+              <span *ngIf="password.errors.required">الرقم السري مطلوب</span>
+            </p>
+          </div>
+          <div class="form-group">
+            <a href="#" style="color: #f00">لست متذكر كلمه السر</a>
+          </div>
+          <div class="form-group submit-button">
+            <button type="submit" class="btn" [disabled]="loading || f.invalid">
+              <i class="fa fa-sign-in-alt"></i>دخول
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="!loading" class="row justify-content-center form-footer">
+      <div class="col-xs-12 col-md-6" class="text-right">
+        <p>لا يوجد حساب <a routerLink="/auth/signup">انشاء حساب</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--##############################################################3-->
+<!--##############################################################3-->
+<!--##############################################################3-->
+<section *ngIf="language === 'eng'" class="engVersion" style="text-align: left">
+  <div class="container">
+    <div class="text-center form-header">
+      <img
+        src="../../../assets/img/user-login.png"
+        alt=""
+        style="height: 70px; width: 70px"
+      />
+      <h3>sign in</h3>
+    </div>
+    <div class="row justify-content-center align-items-center flex-column">
+      <div class="col-xs-8 col-sm-8 col-md-4">
+        <app-loading class="text-center" *ngIf="loading"></app-loading>
+        <app-alert-danger
+          *ngIf="!loading && errorMsg"
+          [errorMessage]="'email or password wrong'"
+          style="margin: 10px auto"
+        ></app-alert-danger>
+      </div>
+      <div class="col-xs-6 col-sm-12 col-md-4">
+        <form (ngSubmit)="onSignin(f)" #f="ngForm">
+          <div class="form-group">
+            <i class="fa fa-envelope-open"></i>
+            <input
+              class="form-control"
+              type="email"
+              placeholder="E-mail..."
+              name="userEmail"
+              [ngModel]="signinData.userEmail"
+              required
+              email
+              #email="ngModel"
+            />
+            <i class="fa fa-check" *ngIf="email.valid && email.touched"></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="email.invalid && email.touched"
+            ></i>
+          </div>
+          <div class="input-errors" *ngIf="email.invalid && email.touched">
+            <p>
+              <span *ngIf="email.errors.required">E-mail is required</span>
+              <span *ngIf="email.errors.email"> invalid E-mail</span>
+            </p>
+          </div>
+          <div class="form-group">
+            <i class="fa fa-key"></i>
+            <input
+              class="form-control"
+              type="password"
+              placeholder="password..."
+              name="userPassword"
+              [ngModel]="signinData.userPassword"
+              required
+              #password="ngModel"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="password.valid && password.touched"
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="password.invalid && password.touched"
+            ></i>
+          </div>
+          <div
+            *ngIf="password.invalid && password.touched"
+            class="input-errors"
+          >
+            <p>
+              <span *ngIf="password.errors.required">password is required</span>
+            </p>
+          </div>
+          <div class="form-group">
+            <a href="#" style="color: #f00">forget password</a>
+          </div>
+          <div class="form-group submit-button">
+            <button type="submit" class="btn" [disabled]="loading || f.invalid">
+              <i class="fa fa-sign-in-alt"></i> signin
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="!loading" class="row justify-content-center form-footer">
+      <div class="col-xs-12 col-md-6" class="text-right">
+        <p>don have account?<a routerLink="/auth/signup"> signup now</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--##############################################################3-->
+<!--##############################################################3-->
+<!--##############################################################3-->

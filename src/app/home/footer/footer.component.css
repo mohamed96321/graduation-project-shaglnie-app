@@ -1,0 +1,22 @@
+.footer {
+  background-color: rgb(44, 44, 44);
+  color: #fff;
+  text-align: center;
+  margin: 0px !important;
+  height: 150px;
+}
+h4 {
+  padding: 10px;
+}
+.footer ul {
+  list-style: none;
+}
+.footer ul li {
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+}
+.footer ul li a {
+  text-decoration: none;
+  color: #fff;
+}

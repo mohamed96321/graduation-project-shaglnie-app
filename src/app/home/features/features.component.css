@@ -1,0 +1,29 @@
+/*FEATURES STYLE CSS ########################################################*/
+.features .container .row > div > div > div.feature-icon {
+  height: 50px;
+  width: 50px;
+  background-color: #efefef;
+  color: var(--mainColor);
+  border-radius: 50%;
+  margin: 10px auto;
+  line-height: 50px;
+}
+
+.features .container .row > div > div div.feature-button {
+  height: 50px;
+  width: 50px;
+  margin: 10px auto;
+  line-height: 50px;
+  border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.features .container .row > div > div div.feature-button button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: var(--mainColor);
+  cursor: pointer;
+  color: #ffffff;
+}
+/*FEATURES STYLE CSS ########################################################*/

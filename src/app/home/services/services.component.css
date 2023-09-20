@@ -1,0 +1,14 @@
+/*SERVICES STYLE CSS ########################################################*/
+
+.services .service-icon {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 0px auto;
+  line-height: 50px;
+}
+.services .service-icon > img {
+  height: 100%;
+  width: 100%;
+}
+/*SERVICES STYLE CSS ########################################################*/

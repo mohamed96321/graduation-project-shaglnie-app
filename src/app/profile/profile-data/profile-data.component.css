@@ -1,0 +1,48 @@
+div.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+div.header-container img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: block;
+  margin-left: 10px;
+}
+div.row {
+  box-shadow: 1px 1px 5px #ccc;
+  border-radius: 20px;
+  padding: 25px;
+}
+div.row > div > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12.5px;
+}
+div.row > div > div > p > i {
+  margin-right: 10px;
+  margin-left: 20px;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: #dadada;
+  text-align: center;
+  line-height: 35px;
+}
+div.row > div > div.button-container > button {
+  width: 90px;
+  border-radius: 40px;
+  margin: 10px;
+  border: none;
+  height: 50px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+div.row > div > div.button-container > button:nth-of-type(2) {
+  background-color: #f00;
+  color: #fff;
+}

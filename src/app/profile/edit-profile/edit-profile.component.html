@@ -1,0 +1,430 @@
+<div class="container" style="margin-top: 25px" *ngIf="language === 'arb'">
+  <div class="row align-items-center justify-content-center flex-column">
+    <div class="col-xs-8 col-sm-8 col-md-4">
+      <h2 class="text-center" style="margin-bottom: 25px">تعديل الحساب</h2>
+    </div>
+    <div class="col-xs-8 col-sm-8 col-md-4">
+      <form [formGroup]="editForm" (ngSubmit)="onEdit()">
+        <div
+          style="
+            margin-bottom: 25px !important;
+            text-align: center;
+            height: 70px;
+            padding: 0px;
+          "
+        >
+          <img
+            [src]="profileImage"
+            style="border-radius: 50%"
+            height="70px"
+            width="70px"
+          />
+          <br />
+          <a
+            type="button"
+            class="btn btn-link upload-img"
+            (click)="file.click()"
+          >
+            <i class="fa fa-image"></i>
+          </a>
+          <input
+            type="file"
+            #file
+            style="display: none"
+            (change)="omImagePicked($event)"
+          />
+        </div>
+        <div class="form-group">
+          <i class="fa fa-user"></i>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="اسم المستخدم"
+            formControlName="userName"
+          />
+          <i class="fa fa-check" *ngIf="editForm.get('userName').valid"></i>
+          <i
+            class="fa fa-exclamation-circle"
+            *ngIf="editForm.get('userName').invalid"
+          ></i>
+        </div>
+        <div
+          class="input-errors"
+          *ngIf="
+            editForm.get('userName').errors && editForm.get('userName').touched
+          "
+        >
+          <p>
+            <span *ngIf="editForm.get('userName').errors['required']"
+              >الاسم مطلوب
+            </span>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <i class="fa fa-envelope-open"></i>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="البريد الاكتروني"
+            formControlName="userEmail"
+          />
+          <i class="fa fa-check" *ngIf="editForm.get('userEmail').valid"></i>
+          <i
+            class="fa fa-exclamation-circle"
+            *ngIf="editForm.get('userEmail').invalid"
+          ></i>
+        </div>
+        <div
+          class="input-errors"
+          *ngIf="
+            editForm.get('userEmail').errors &&
+            editForm.get('userEmail').touched
+          "
+        >
+          <p>
+            <span *ngIf="editForm.get('userEmail').errors['required']"
+              >الايميل مطلوب
+            </span>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <i class="fa fa-phone"></i>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="رقم الهاتف"
+            formControlName="userPhone"
+          />
+          <i class="fa fa-check" *ngIf="editForm.get('userPhone').valid"></i>
+          <i
+            class="fa fa-exclamation-circle"
+            *ngIf="editForm.get('userPhone').invalid"
+          ></i>
+        </div>
+        <div
+          *ngIf="
+            editForm.get('userPhone').errors &&
+            editForm.get('userPhone').touched
+          "
+          class="input-errors"
+        >
+          <p>
+            <span *ngIf="editForm.get('userPhone').errors['required']"
+              >الهاتف مطلوب
+            </span>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <i class="fa fa-map-marker-alt"></i>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="المحافظه"
+            formControlName="userBigCity"
+          />
+          <i class="fa fa-check" *ngIf="editForm.get('userBigCity').valid"></i>
+          <i
+            class="fa fa-exclamation-circle"
+            *ngIf="editForm.get('userBigCity').invalid"
+          ></i>
+        </div>
+        <div
+          *ngIf="
+            editForm.get('userBigCity').errors &&
+            editForm.get('userBigCity').touched
+          "
+          class="input-errors"
+        >
+          <p>
+            <span *ngIf="editForm.get('userBigCity').errors['required']"></span>
+            المحافظه مطلوب
+          </p>
+        </div>
+
+        <div class="form-group">
+          <i class="fa fa-city"></i>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="المدينه"
+            formControlName="userCity"
+          />
+          <i class="fa fa-check" *ngIf="editForm.get('userCity').valid"></i>
+          <i
+            class="fa fa-exclamation-circle"
+            *ngIf="editForm.get('userCity').invalid"
+          ></i>
+        </div>
+        <div
+          *ngIf="
+            editForm.get('userCity').errors && editForm.get('userCity').touched
+          "
+          class="input-errors"
+        >
+          <p>
+            <span *ngIf="editForm.get('userCity').errors['required']"
+              >المدينه مطلوب
+            </span>
+          </p>
+        </div>
+
+        <div *ngIf="userData.job" class="form-group">
+          <i class="fa fa-house-user"></i>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="المهنه"
+            formControlName="job"
+            readonly
+          />
+          <i class="fa fa-check" *ngIf="editForm.get('job').valid"></i>
+          <i
+            class="fa fa-exclamation-circle"
+            *ngIf="editForm.get('job').invalid"
+          ></i>
+        </div>
+        <div
+          *ngIf="
+            editForm.get('job').errors &&
+            editForm.get('job').touched &&
+            userData.job
+          "
+          class="input-errors"
+        >
+          <p>
+            <span *ngIf="editForm.get('job').errors['required']"
+              >المهنه مطلوب
+            </span>
+          </p>
+        </div>
+        <div class="btn-controls form-group">
+          <button type="submit" *ngIf="editForm.valid">
+            <i class="fa fa-edit"></i> تعديل
+          </button>
+          <button type="button" routerLink="/profile">
+            <i class="fa fa-times-circle"></i>رجوع
+          </button>
+          <button type="button" (click)="onRest()">
+            <i class="fa fa-trash-restore"></i>اعاده ضبط
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-8 col-sm-8 col-md-4">
+      <app-alert-success
+        *ngIf="porfileEdited"
+        [successMessage]="'تم تعديل البيانات بنجاح'"
+      ></app-alert-success>
+    </div>
+  </div>
+</div>
+<!--#################################################################################3-->
+<!--#################################################################################3-->
+<!--#################################################################################3-->
+
+<div
+  class="container engVersion"
+  style="margin-top: 25px"
+  *ngIf="language === 'eng'"
+>
+  <div class="row align-items-center justify-content-center flex-column">
+    <div class="col-xs-8 col-sm-8 col-md-4">
+      <h2 class="text-center" style="margin-bottom: 25px">edit account</h2>
+    </div>
+    <div class="col-xs-8 col-sm-8 col-md-4">
+      <form [formGroup]="editForm" (ngSubmit)="onEdit()">
+        <div
+          style="
+            margin-bottom: 25px !important;
+            text-align: center;
+            height: 70px;
+            padding: 0px;
+          "
+        >
+          <img
+            [src]="profileImage"
+            style="border-radius: 50%"
+            height="70px"
+            width="70px"
+          />
+          <br />
+          <a
+            type="button"
+            class="btn btn-link upload-img"
+            (click)="file.click()"
+          >
+            <i class="fa fa-image"></i>
+          </a>
+          <input
+            type="file"
+            #file
+            style="display: none"
+            (change)="omImagePicked($event)"
+          />
+        </div>
+        <div class="form-group">
+          <i class="fa fa-user"></i>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="full name..."
+            formControlName="userName"
+          />
+          <i class="fa fa-check" *ngIf="editForm.get('userName').valid"></i>
+          <i
+            class="fa fa-exclamation-circle"
+            *ngIf="editForm.get('userName').invalid"
+          ></i>
+        </div>
+        <div
+          class="input-errors"
+          *ngIf="
+            editForm.get('userName').errors && editForm.get('userName').touched
+          "
+        >
+          <p>
+            <span *ngIf="editForm.get('userName').errors['required']"
+              >full name is required
+            </span>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <i class="fa fa-envelope-open"></i>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="e-mail"
+            formControlName="userEmail"
+          />
+          <i class="fa fa-check" *ngIf="editForm.get('userEmail').valid"></i>
+          <i
+            class="fa fa-exclamation-circle"
+            *ngIf="editForm.get('userEmail').invalid"
+          ></i>
+        </div>
+        <div
+          class="input-errors"
+          *ngIf="
+            editForm.get('userEmail').errors &&
+            editForm.get('userEmail').touched
+          "
+        >
+          <p>
+            <span *ngIf="editForm.get('userEmail').errors['required']"
+              >e-mail is required
+            </span>
+          </p>
+          <p>
+            <span *ngIf="editForm.get('userEmail').errors['email']"
+              >e-mail is invalid
+            </span>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <i class="fa fa-phone"></i>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="phone number..."
+            formControlName="userPhone"
+          />
+          <i class="fa fa-check" *ngIf="editForm.get('userPhone').valid"></i>
+          <i
+            class="fa fa-exclamation-circle"
+            *ngIf="editForm.get('userPhone').invalid"
+          ></i>
+        </div>
+        <div
+          *ngIf="
+            editForm.get('userPhone').errors &&
+            editForm.get('userPhone').touched
+          "
+          class="input-errors"
+        >
+          <p>
+            <span *ngIf="editForm.get('userPhone').errors['required']"
+              >phone number is required
+            </span>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <i class="fa fa-map-marker-alt"></i>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="state"
+            formControlName="userBigCity"
+          />
+          <i class="fa fa-check" *ngIf="editForm.get('userBigCity').valid"></i>
+          <i
+            class="fa fa-exclamation-circle"
+            *ngIf="editForm.get('userBigCity').invalid"
+          ></i>
+        </div>
+        <div
+          *ngIf="
+            editForm.get('userBigCity').errors &&
+            editForm.get('userBigCity').touched
+          "
+          class="input-errors"
+        >
+          <p>
+            <span *ngIf="editForm.get('userBigCity').errors['required']"></span>
+            state is required
+          </p>
+        </div>
+
+        <div class="form-group">
+          <i class="fa fa-city"></i>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="city"
+            formControlName="userCity"
+          />
+          <i class="fa fa-check" *ngIf="editForm.get('userCity').valid"></i>
+          <i
+            class="fa fa-exclamation-circle"
+            *ngIf="editForm.get('userCity').invalid"
+          ></i>
+        </div>
+        <div
+          *ngIf="
+            editForm.get('userCity').errors && editForm.get('userCity').touched
+          "
+          class="input-errors"
+        >
+          <p>
+            <span *ngIf="editForm.get('userCity').errors['required']"
+              >city is required
+            </span>
+          </p>
+        </div>
+
+        <div class="btn-controls form-group">
+          <button type="submit" *ngIf="editForm.valid">
+            <i class="fa fa-edit"></i> save
+          </button>
+          <button type="button" routerLink="/profile">
+            <i class="fa fa-times-circle"></i> back
+          </button>
+          <button type="button" (click)="onRest()">
+            <i class="fa fa-trash-restore"></i> reset
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-8 col-sm-8 col-md-4">
+      <app-alert-success
+        *ngIf="porfileEdited"
+        [successMessage]="'successfully edit profile'"
+      ></app-alert-success>
+    </div>
+  </div>
+</div>

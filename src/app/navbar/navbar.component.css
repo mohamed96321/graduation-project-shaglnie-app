@@ -1,0 +1,29 @@
+.active {
+  color: var(--mainColor) !important;
+}
+nav.navbar {
+  position: sticky !important;
+  top: 0;
+  z-index: 9999999999;
+  box-shadow: 1px 1px 5px #ccc;
+}
+.navbar-light .navbar-toggler {
+  border: none;
+  margin-top: 10px;
+}
+
+.navbar .navbar-nav {
+  margin: auto;
+  text-align: right;
+}
+.navbar .navbar-nav .nav-link {
+  display: block;
+  display: inline-block;
+  margin: 0px 2.5px;
+}
+.navbar-light .navbar-toggler {
+  border: none;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}

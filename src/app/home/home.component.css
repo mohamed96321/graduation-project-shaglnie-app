@@ -1,0 +1,5 @@
+.container > h1 {
+  color: var(--mainColor);
+  margin-bottom: 50px;
+  font-size: 32px;
+}

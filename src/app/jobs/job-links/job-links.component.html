@@ -1,0 +1,23 @@
+<ul *ngIf="language === 'arb'">
+  <li class="active" #ele (click)="getPosts('*', ele)">الكل</li>
+  <li
+    *ngFor="let job of postedJobs.reverse()"
+    #ele
+    (click)="getPosts(job, ele)"
+  >
+    {{ job }}
+  </li>
+</ul>
+<!--############################################-->
+<!--############################################-->
+<!--############################################-->
+<ul *ngIf="language === 'eng'" class="engVersion">
+  <li class="active" #ele (click)="getPosts('*', ele)">all</li>
+  <li
+    *ngFor="let job of postedJobs.reverse()"
+    #ele
+    (click)="getPosts(job, ele)"
+  >
+    {{ job }}
+  </li>
+</ul>

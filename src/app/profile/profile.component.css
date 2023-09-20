@@ -1,0 +1,18 @@
+.userData {
+  height: 400px;
+  width: 400px;
+  margin-top: 40px;
+  position: sticky;
+  top: 60px;
+  z-index: 2;
+  margin-bottom: 20px;
+}
+.userPosts {
+  margin-top: 15px;
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+}
+.noPosts {
+  padding: 25px;
+}

@@ -1,0 +1,195 @@
+<nav
+  class="navbar navbar-expand-md navbar-light bg-light"
+  *ngIf="language === 'arb'"
+>
+  <a class="navbar-brand" href="#">شغلني</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class=""></div>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a
+        class="nav-link"
+        class="nav-link"
+        routerLinkActive="active"
+        routerLink="/home"
+        ><i class="fa fa-home"></i> الرئيسه
+      </a>
+      <a
+        *ngIf="isAdmin"
+        class="nav-link"
+        routerLinkActive="active"
+        routerLink="/admin/statistic"
+        ><i class="fa fa-calculator"></i> الاحصأيات</a
+      >
+      <a
+        *ngIf="isAdmin"
+        class="nav-link"
+        routerLink="/admin/users"
+        [routerLinkActive]="'active'"
+        ><i class="fa fa-users"></i> المستخدمين</a
+      >
+      <a
+        *ngIf="isAdmin"
+        class="nav-link"
+        routerLink="/admin/reports"
+        routerLinkActive="active"
+        ><i class="fa fa-flag-checkered"></i> الشكاوي</a
+      >
+      <a class="nav-link" routerLinkActive="active" routerLink="/post/timeline"
+        ><i class="fa fa-briefcase"></i> الوظائف</a
+      >
+      <a
+        class="nav-link"
+        *ngIf="!isAdmin"
+        routerLinkActive="active"
+        routerLink="/post/create"
+        ><i class="fa fa-paper-plane"></i> نشر وظيفه</a
+      >
+      <a class="nav-link" routerLinkActive="active" routerLink="/post/search"
+        ><i class="fa fa-search"></i> بحث</a
+      >
+      <a
+        *ngIf="!isAuthenticated"
+        class="nav-link"
+        routerLinkActive="active"
+        routerLink="/auth/signin"
+        ><i class="fa fa-sign-in-alt"></i> تسجيل دخول</a
+      >
+      <a
+        *ngIf="!isAuthenticated"
+        class="nav-link"
+        routerLinkActive="active"
+        routerLink="/auth/signup"
+        ><i class="fa fa-user-plus"></i> انشاء حساب</a
+      >
+
+      <a
+        *ngIf="isAuthenticated"
+        class="nav-link"
+        routerLinkActive="active"
+        routerLink="/profile"
+        ><i class="fa fa-user-circle"></i> الحساب الشخصي</a
+      >
+      <a
+        *ngIf="isAuthenticated"
+        class="nav-link"
+        style="cursor: pointer"
+        (click)="onLogout()"
+        ><i class="fa fa-sign-out-alt"></i> تسجيل خروج</a
+      >
+      <a style="cursor: pointer" (click)="onChangeLlanguage()" class="nav-link"
+        ><i class="fa fa-globe-asia"></i> {{ lang }}
+      </a>
+    </div>
+  </div>
+</nav>
+<!--#######################################################################3-->
+<!--###########################ENGLISH_PART###################################3-->
+<!--#######################################################################3-->
+
+<nav
+  class="navbar navbar-expand-md navbar-light bg-light engVersion"
+  *ngIf="language === 'eng'"
+>
+  <a class="navbar-brand" href="#">wazfty</a>
+  <button
+    style="left: 90%"
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class=""></div>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav" style="text-align: left">
+      <a
+        class="nav-link"
+        class="nav-link"
+        routerLinkActive="active"
+        routerLink="/home"
+        ><i class="fa fa-home"></i> home
+      </a>
+      <a
+        *ngIf="isAdmin"
+        class="nav-link"
+        routerLinkActive="active"
+        routerLink="/admin/statistic"
+        ><i class="fa fa-calculator"></i> statistics</a
+      >
+      <a
+        *ngIf="isAdmin"
+        class="nav-link"
+        routerLink="/admin/users"
+        [routerLinkActive]="'active'"
+        ><i class="fa fa-users"></i> users</a
+      >
+      <a
+        *ngIf="isAdmin"
+        class="nav-link"
+        routerLink="/admin/reports"
+        routerLinkActive="active"
+        ><i class="fa fa-flag-checkered"></i> reports</a
+      >
+      <a class="nav-link" routerLinkActive="active" routerLink="/post/timeline"
+        ><i class="fa fa-briefcase"></i> Jobs</a
+      >
+      <a
+        class="nav-link"
+        *ngIf="!isAdmin"
+        routerLinkActive="active"
+        routerLink="/post/create"
+        ><i class="fa fa-paper-plane"></i> create job</a
+      >
+      <a class="nav-link" routerLinkActive="active" routerLink="/post/search"
+        ><i class="fa fa-search"></i> search</a
+      >
+      <a
+        *ngIf="!isAuthenticated"
+        class="nav-link"
+        routerLinkActive="active"
+        routerLink="/auth/signin"
+        ><i class="fa fa-sign-in-alt"></i> sigin in</a
+      >
+      <a
+        *ngIf="!isAuthenticated"
+        class="nav-link"
+        routerLinkActive="active"
+        routerLink="/auth/signup"
+        ><i class="fa fa-user-plus"></i> sigin up</a
+      >
+
+      <a
+        *ngIf="isAuthenticated"
+        class="nav-link"
+        routerLinkActive="active"
+        routerLink="/profile"
+        ><i class="fa fa-user-circle"></i> profile</a
+      >
+      <a
+        *ngIf="isAuthenticated"
+        class="nav-link"
+        style="cursor: pointer"
+        (click)="onLogout()"
+        ><i class="fa fa-sign-out-alt"></i> log out</a
+      >
+      <a style="cursor: pointer" (click)="onChangeLlanguage()" class="nav-link"
+        ><i class="fa fa-globe-asia"></i> {{ lang }}
+      </a>
+    </div>
+  </div>
+</nav>

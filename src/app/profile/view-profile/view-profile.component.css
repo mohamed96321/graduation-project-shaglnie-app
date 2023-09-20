@@ -1,0 +1,49 @@
+.userData {
+  height: 400px;
+  width: 400px;
+  margin-top: 40px;
+  position: sticky;
+  top: 60px;
+  z-index: 2;
+  margin-bottom: 20px;
+}
+.userPosts {
+  margin-top: 15px;
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+}
+h5 {
+  margin: 25px auto;
+}
+.modalBtn {
+  height: 50px;
+  padding: 0px 20px;
+  margin-top: 25px;
+  border-radius: 30px;
+  margin-left: 25px;
+}
+.modal {
+  z-index: 99999999999;
+}
+.modal form textarea {
+  height: 120px;
+  border-radius: 30px;
+  width: 100%;
+  padding: 20px;
+}
+.modal form button {
+  background-color: var(--mainColor);
+  border-radius: 50px;
+  padding: 10px 20px;
+  border: none;
+}
+.imgIdentity {
+  padding: 25px;
+}
+.imgIdentity h6 {
+  padding: 10px;
+}
+.imgIdentity h6 strong {
+  color: var(--mainColor);
+}

@@ -1,0 +1,44 @@
+.alert {
+  margin-top: 25px;
+  border-radius: 30px;
+  width: fit-content;
+}
+.alert a {
+  text-decoration: none;
+}
+
+form {
+  margin-top: 20px;
+}
+.create-comment {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  padding: 25px;
+}
+
+.create-comment form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.create-comment form a {
+  cursor: pointer;
+}
+.create-comment form > div {
+  float: right;
+  margin: 0px;
+  padding: 0px;
+  margin-right: 1%;
+}
+.create-comment form input,
+.create-comment form button {
+  border-radius: 30px;
+  height: 50px;
+}
+.create-comment .create-commentImages img {
+  height: 80px;
+  width: 80px;
+  border-radius: 20px;
+  margin: 5px 2.5px;
+}

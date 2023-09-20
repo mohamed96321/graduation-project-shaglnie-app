@@ -1,0 +1,10 @@
+section {
+  margin-top: 25px;
+}
+div.post {
+  position: sticky;
+  top: 50px;
+  height: auto;
+  width: auto;
+  z-index: 2;
+}

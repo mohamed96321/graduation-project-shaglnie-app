@@ -1,0 +1,663 @@
+<section *ngIf="language === 'arb'">
+  <div class="container">
+    <div class="form-header text-center">
+      <img
+        src="../../../assets/img/newuser.png"
+        alt=""
+        style="height: 70px; width: 70px"
+      />
+      <h3>انشاء حساب</h3>
+    </div>
+
+    <div class="row justify-content-center align-items-center flex-column">
+      <div class="col-xs-8 col-sm-8 col-md-4">
+        <app-loading class="text-center" *ngIf="loading"></app-loading>
+        <app-alert-danger
+          [errorMessage]="errorMsg"
+          *ngIf="!loading && errorMsg"
+        ></app-alert-danger>
+        <app-alert-success
+          [successMessage]="alertMsg"
+          *ngIf="alertMsg"
+        ></app-alert-success>
+      </div>
+      <div class="col-xs-8 col-sm-8 col-md-4">
+        <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+          <div class="form-group">
+            <i class="fa fa-user"></i>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="اسم المستخدم"
+              formControlName="userName"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userName').valid &&
+                signupForm.get('userName').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userName').invalid &&
+                signupForm.get('userName').touched
+              "
+            ></i>
+          </div>
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userName').errors &&
+              signupForm.get('userName').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userName').errors['required']"
+                >الاسم مطلوب
+              </span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <i class="fa fa-envelope-open"></i>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="البريد الاكتروني"
+              formControlName="userEmail"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userEmail').valid &&
+                signupForm.get('userEmail').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userEmail').invalid &&
+                signupForm.get('userEmail').touched
+              "
+            ></i>
+          </div>
+
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userEmail').errors &&
+              signupForm.get('userEmail').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userEmail').errors['required']"
+                >الايميل مطلوب
+              </span>
+              <span *ngIf="signupForm.get('userEmail').errors['email']"
+                >الايميل غير صحيح
+              </span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <i class="fa fa-phone"></i>
+            <input
+              class="form-control"
+              type="number"
+              placeholder="رقم الهاتف"
+              formControlName="userPhone"
+              minlength="11"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userPhone').valid &&
+                signupForm.get('userPhone').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userPhone').invalid &&
+                signupForm.get('userPhone').touched
+              "
+            ></i>
+          </div>
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userPhone').errors &&
+              signupForm.get('userPhone').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userPhone').errors['required']"
+                >الهاتف مطلوب
+              </span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <i class="fa fa-map-marker-alt"></i>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="المحافظه"
+              formControlName="userBigCity"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userBigCity').valid &&
+                signupForm.get('userBigCity').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userBigCity').invalid &&
+                signupForm.get('userBigCity').touched
+              "
+            ></i>
+          </div>
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userBigCity').errors &&
+              signupForm.get('userBigCity').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userBigCity').errors['required']">
+                المحافظه مطلوب</span
+              >
+            </p>
+          </div>
+
+          <div class="form-group">
+            <i class="fa fa-city"></i>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="المدينه"
+              formControlName="userCity"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userCity').valid &&
+                signupForm.get('userCity').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userCity').invalid &&
+                signupForm.get('userCity').touched
+              "
+            ></i>
+          </div>
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userCity').errors &&
+              signupForm.get('userCity').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userCity').errors['required']"
+                >المدينه مطلوب
+              </span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <i class="fa fa-key"></i>
+            <input
+              class="form-control"
+              type="userPassword"
+              placeholder="الرقم السري"
+              formControlName="userPassword"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userPassword').valid &&
+                signupForm.get('userPassword').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userPassword').invalid &&
+                signupForm.get('userPassword').touched
+              "
+            ></i>
+          </div>
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userPassword').errors &&
+              signupForm.get('userPassword').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userPassword').errors['required']"
+                >الرقم السري مطلوب
+              </span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="checkbox"
+              formControlName="isWorker"
+              (click)="onChangeUser()"
+            />
+            <label>تسجيل كحرفي</label>
+          </div>
+          <div *ngIf="signupForm.get('isWorker').value" class="form-group">
+            <i class="fa fa-id-badge"></i>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="الوظيفه"
+              formControlName="job"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('job').valid && signupForm.get('job').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('job').invalid && signupForm.get('job').touched
+              "
+            ></i>
+          </div>
+          <div *ngIf="signupForm.get('isWorker').value">
+            <div class="upload-link">
+              <a (click)="file.click()"
+                ><i class="fa fa-images"></i> الاعمال السابقه
+              </a>
+              <input
+                type="file"
+                multiple
+                #file
+                style="display: none"
+                (change)="onImagesPicked($event)"
+              />
+            </div>
+            <picture
+              *ngIf="imagesPreview.length !== 0"
+              style="height: 120px; width: 100%; display: block"
+            >
+              <img
+                *ngFor="let img of imagesPreview; let i = index"
+                [src]="img"
+                height="100px"
+                width="100px"
+                style="float: right; margin: 2.5px; border-radius: 20px"
+              />
+            </picture>
+          </div>
+          <div class="form-group submit-button">
+            <button [disabled]="!signupForm.valid" class="btn" type="submit">
+              <i class="fa fa-sign-in-alt"></i> تسجيل
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="!loading" class="row justify-content-center form-footer">
+      <div class="col-xs-12 col-md-6" class="text-right">
+        <p>
+          بالفعل لديك حساب<a
+            [routerLink]="['/auth/signin']"
+            routerLinkActive="active"
+          >
+            تسجيل دخول</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--###################################################-->
+<!--########################ENGLISH#######################-->
+<!--###################################################-->
+<section *ngIf="language === 'eng'" class="engVersion" style="text-align: left">
+  <div class="container">
+    <div class="form-header text-center">
+      <img
+        src="../../../assets/img/newuser.png"
+        alt=""
+        style="height: 70px; width: 70px"
+      />
+      <h3>sign up</h3>
+    </div>
+
+    <div class="row justify-content-center align-items-center flex-column">
+      <div class="col-xs-8 col-sm-8 col-md-4">
+        <app-loading class="text-center" *ngIf="loading"></app-loading>
+        <app-alert-danger
+          [errorMessage]="'email already used'"
+          *ngIf="!loading && errorMsg"
+        ></app-alert-danger>
+        <app-alert-success
+          [successMessage]="'you can login after checking request to join us'"
+          *ngIf="alertMsg"
+        ></app-alert-success>
+      </div>
+      <div class="col-xs-8 col-sm-8 col-md-4">
+        <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+          <div class="form-group">
+            <i class="fa fa-user"></i>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="full name..."
+              formControlName="userName"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userName').valid &&
+                signupForm.get('userName').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userName').invalid &&
+                signupForm.get('userName').touched
+              "
+            ></i>
+          </div>
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userName').errors &&
+              signupForm.get('userName').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userName').errors['required']"
+                >full name required
+              </span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <i class="fa fa-envelope-open"></i>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="e-mail..."
+              formControlName="userEmail"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userEmail').valid &&
+                signupForm.get('userEmail').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userEmail').invalid &&
+                signupForm.get('userEmail').touched
+              "
+            ></i>
+          </div>
+
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userEmail').errors &&
+              signupForm.get('userEmail').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userEmail').errors['required']">
+                email is required
+              </span>
+              <span *ngIf="signupForm.get('userEmail').errors['email']"
+                >invalid email ex: ex@gmail.com
+              </span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <i class="fa fa-phone"></i>
+            <input
+              class="form-control"
+              type="number"
+              placeholder="phone number..."
+              formControlName="userPhone"
+              minlength="11"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userPhone').valid &&
+                signupForm.get('userPhone').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userPhone').invalid &&
+                signupForm.get('userPhone').touched
+              "
+            ></i>
+          </div>
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userPhone').errors &&
+              signupForm.get('userPhone').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userPhone').errors['required']">
+                phone number is required
+              </span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <i class="fa fa-map-marker-alt"></i>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="state..."
+              formControlName="userBigCity"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userBigCity').valid &&
+                signupForm.get('userBigCity').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userBigCity').invalid &&
+                signupForm.get('userBigCity').touched
+              "
+            ></i>
+          </div>
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userBigCity').errors &&
+              signupForm.get('userBigCity').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userBigCity').errors['required']">
+                state is required</span
+              >
+            </p>
+          </div>
+
+          <div class="form-group">
+            <i class="fa fa-city"></i>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="city..."
+              formControlName="userCity"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userCity').valid &&
+                signupForm.get('userCity').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userCity').invalid &&
+                signupForm.get('userCity').touched
+              "
+            ></i>
+          </div>
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userCity').errors &&
+              signupForm.get('userCity').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userCity').errors['required']">
+                city is required
+              </span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <i class="fa fa-key"></i>
+            <input
+              class="form-control"
+              type="userPassword"
+              placeholder="password..."
+              formControlName="userPassword"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('userPassword').valid &&
+                signupForm.get('userPassword').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('userPassword').invalid &&
+                signupForm.get('userPassword').touched
+              "
+            ></i>
+          </div>
+          <div
+            class="input-errors"
+            *ngIf="
+              signupForm.get('userPassword').errors &&
+              signupForm.get('userPassword').touched
+            "
+          >
+            <p>
+              <span *ngIf="signupForm.get('userPassword').errors['required']"
+                >password is required
+              </span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>signin up as worker</label>
+            <input
+              type="checkbox"
+              formControlName="isWorker"
+              (click)="onChangeUser()"
+            />
+          </div>
+          <div *ngIf="signupForm.get('isWorker').value" class="form-group">
+            <i class="fa fa-id-badge"></i>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="your job..."
+              formControlName="job"
+            />
+            <i
+              class="fa fa-check"
+              *ngIf="
+                signupForm.get('job').valid && signupForm.get('job').touched
+              "
+            ></i>
+            <i
+              class="fa fa-exclamation-circle"
+              *ngIf="
+                signupForm.get('job').invalid && signupForm.get('job').touched
+              "
+            ></i>
+          </div>
+          <div *ngIf="signupForm.get('isWorker').value">
+            <div class="upload-link">
+              <a (click)="file.click()"
+                ><i class="fa fa-images"></i> upload your identity card and your
+                work's
+              </a>
+              <input
+                type="file"
+                multiple
+                #file
+                style="display: none"
+                (change)="onImagesPicked($event)"
+              />
+            </div>
+            <picture
+              *ngIf="imagesPreview.length !== 0"
+              style="height: 120px; width: 100%; display: block"
+            >
+              <img
+                *ngFor="let img of imagesPreview; let i = index"
+                [src]="img"
+                height="100px"
+                width="100px"
+                style="float: left; margin: 2.5px; border-radius: 20px"
+              />
+            </picture>
+          </div>
+          <div class="form-group submit-button">
+            <button [disabled]="!signupForm.valid" type="submit" class="btn">
+              <i class="fa fa-sign-in-alt"></i> signup
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="!loading" class="row justify-content-center form-footer">
+      <div class="col-xs-12 col-md-6" class="text-right">
+        <p>
+          already have account?
+          <a [routerLink]="['/auth/signin']" routerLinkActive="active">
+            signin</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--###################################################-->
+<!--########################ENGLISH#######################-->
+<!--###################################################-->

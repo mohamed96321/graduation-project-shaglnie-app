@@ -1,0 +1,183 @@
+<div class="container" *ngIf="language == 'arb'">
+  <div class="row justify-content-center align-items-center flex-column">
+    <div class="col-md-8">
+      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div
+          class="collapse navbar-collapse"
+          id="navbarTogglerDemo02"
+          style="display: block !important"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" (click)="getUsers('user/')">الكل</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="getUsers('user/users')"
+                ><i class="fa fa-user"></i> المستخدمين</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="getUsers('worker')"
+                ><i class="fa fa-briefcase"></i> المهنيين</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="getUsers('worker/workerReq')">
+                <i class="fa fa-sign-in-alt"></i> الطلبات
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="col-md-8" style="margin-bottom: 25px">
+      <form #f="ngForm" (ngSubmit)="onGetUserByEmail(f)">
+        <div class="form-group">
+          <input
+            type="email"
+            name="email"
+            placeholder="البحث بالبريد الاكتروني"
+            class="form-control"
+            ngModel
+            email
+            required
+            minlength="10"
+            #email="ngModel"
+          />
+          <button type="submit" class="btn btn-light" [disabled]="f.invalid">
+            بحث
+          </button>
+        </div>
+        <div *ngIf="email.errors && email.touched">
+          <p *ngIf="email.errors['required']">لايميل خاطيئ</p>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-8">
+      <table *ngIf="users.length" class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">الاسم</th>
+            <th scope="col">لايميل</th>
+            <th scope="col">العنوان</th>
+            <th scope="col">عرض</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let user of users.reverse()"
+            [ngStyle]="{
+              border: user.accepted === false ? '1px solid #f00' : ''
+            }"
+          >
+            <td>{{ user.userName }}</td>
+            <td>{{ user.userEmail }}</td>
+            <td>{{ user.userBigCity }},{{ user.userCity }}</td>
+            <td>
+              <a [routerLink]="['/profile', user._id]">
+                <i class="fa fa-eye"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="!users.length">
+        <p>لا يوجد نتائج حاليا</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--##########################################################-->
+<!--##########################################################-->
+<!--##########################################################-->
+<!--##########################################################-->
+
+<div class="container engVersion" *ngIf="language == 'eng'">
+  <div class="row justify-content-center align-items-center flex-column">
+    <div class="col-md-8">
+      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div
+          class="collapse navbar-collapse"
+          id="navbarTogglerDemo02"
+          style="display: block !important"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" (click)="getUsers('user/')">All</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="getUsers('user/users')"
+                ><i class="fa fa-user"></i> Users</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="getUsers('worker')"
+                ><i class="fa fa-briefcase"></i> Workers</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="getUsers('worker/workerReq')">
+                <i class="fa fa-sign-in-alt"></i> Requestes
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="col-md-8" style="margin-bottom: 25px">
+      <form #f="ngForm" (ngSubmit)="onGetUserByEmail(f)">
+        <div class="form-group">
+          <input
+            type="email"
+            name="email"
+            placeholder="Search By E-Mail..."
+            class="form-control"
+            ngModel
+            email
+            required
+            minlength="10"
+            #email="ngModel"
+          />
+          <button type="submit" class="btn btn-light" [disabled]="f.invalid">
+            بحث
+          </button>
+        </div>
+        <div *ngIf="email.errors && email.touched">
+          <p *ngIf="email.errors['required']">invalid email</p>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-8">
+      <table *ngIf="users.length" class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">E-Mail</th>
+            <th scope="col">Address</th>
+            <th scope="col">View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let user of users.reverse()"
+            [ngStyle]="{
+              border: user.accepted === false ? '1px solid #f00' : ''
+            }"
+          >
+            <td>{{ user.userName }}</td>
+            <td>{{ user.userEmail }}</td>
+            <td>{{ user.userBigCity }},{{ user.userCity }}</td>
+            <td>
+              <a [routerLink]="['/profile', user._id]">
+                <i class="fa fa-eye"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="!users.length">
+        <p>No Resualts Now</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <a *ngFor="let user of users" (click)="onGetUser(user._id)">
+      <div class="link-content">
+        <div class="user-img">
+          <img [src]="user.profileImage" [alt]="user.userName" />
+        </div>
+        <div class="user-info">
+          <h6>{{ user.userName }}</h6>
+          <p><i class="fa fa-phone"></i> {{ user.userPhone }}</p>
+        </div>
+        <div class="user-address">
+          <p>
+            <i class="fa fa-map-marker-alt"></i> {{ user.userBigCity }},
+            {{ user.userCity }}
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

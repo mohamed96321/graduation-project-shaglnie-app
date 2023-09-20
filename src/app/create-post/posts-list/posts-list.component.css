@@ -1,0 +1,163 @@
+h1 {
+  text-align: center;
+  margin: 30px auto;
+}
+.post-job {
+  text-align: center;
+  height: 40px;
+  padding: 0px 25px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  color: #ffff;
+  line-height: 40px;
+  border-radius: 20px 0px;
+}
+i {
+  color: #000;
+  margin-left: 20px;
+  margin-right: 10px;
+  float: right;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.row {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+}
+.row > div:first-of-type {
+  margin-top: 25px;
+}
+.row > div {
+  padding: 0px !important;
+  margin-bottom: 25px;
+}
+.row > div > div {
+  padding: 25px;
+  box-shadow: 1px 1px 5px #cccccc;
+  text-align: right;
+  overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  height: 100%;
+}
+.row div.post-header {
+  cursor: pointer;
+}
+.row > div header {
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 20px;
+}
+.row > div header h5 {
+  height: 25px;
+  width: 200px;
+  line-height: 25px;
+  padding-right: 60px;
+  font-size: 16px;
+}
+.row > div header div.post-date {
+  padding-right: 60px;
+  height: 20px !important;
+  width: 200px;
+  margin-top: -6px;
+  line-height: 20px;
+}
+.row > div header div.post-date * {
+  padding: 0px !important;
+  margin: 0px !important;
+  display: inline-block;
+  float: none;
+  font-size: 12px;
+}
+
+.row > div > div > div.post-header img {
+  float: right;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.row > div > div > div.post-text {
+  min-height: 50px;
+  display: block;
+}
+.row > div > div > div.post-images {
+  width: 100%;
+  min-height: 150px;
+  padding: 0px;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+.row > div > div > div.post-images img {
+  width: 50%;
+  height: 200px;
+  float: right;
+}
+.row > div > div > div.post-images img:nth-of-type(3) {
+  width: 100% !important;
+  height: 200px;
+  float: right;
+}
+
+.row .post-controls {
+  margin-top: 25px;
+  height: 50px;
+  width: 100%;
+}
+.row .post-controls button {
+  margin-top: 5px;
+  height: 40px;
+  border: none;
+  border-radius: 30px;
+  color: #ffffff;
+}
+.row .post-controls button > i {
+  margin: 0px;
+}
+.row .post-controls button.btn-danger i {
+  color: #ffffff !important;
+}
+.row .post-controls button.btn-dark i {
+  color: #000000 !important;
+}
+.row .post-controls button.btn-dark {
+  background-color: #dadada;
+  float: left;
+  color: #000000;
+}
+.alert-post-delete {
+  position: fixed;
+  bottom: 0px;
+  width: 350px;
+}
+.displayIamge {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999999;
+}
+.displayIamge img {
+  display: block;
+  height: 300px;
+  width: 300px;
+}
+.displayIamge i {
+  margin: 20px;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}

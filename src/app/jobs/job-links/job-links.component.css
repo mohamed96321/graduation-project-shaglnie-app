@@ -1,0 +1,16 @@
+ul {
+  padding-top: 25px;
+}
+ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: rgb(239, 239, 239);
+  margin: 5px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+ul li.active {
+  background-color: var(--mainColor);
+  color: #fff;
+}

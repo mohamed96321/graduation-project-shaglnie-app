@@ -1,0 +1,171 @@
+<div *ngIf="language === 'arb'" class="container">
+  <div class="row">
+    <div *ngFor="let post of posts.reverse()">
+      <div class="single-post">
+        <div
+          class="post-job"
+          [ngStyle]="{
+            backgroundColor: post.createByWorker ? '#f00' : 'green'
+          }"
+        >
+          <span>{{ post.job }}</span>
+        </div>
+        <div
+          [title]="' عرض حساب' + ' ' + post.creator.userName"
+          class="post-header"
+        >
+          <a (click)="onGetUser(post.creator._id)"
+            ><header>
+              <img
+                [src]="post.creator.profileImage"
+                [alt]="post.creator.userName"
+              />
+              <h5>{{ post.creator.userName }}</h5>
+              <div class="post-date">
+                <p>{{ post.postDate }}</p>
+              </div>
+            </header>
+          </a>
+        </div>
+
+        <div class="post-address-phone">
+          <div>
+            <i class="fa fa-phone"></i>
+            <p>{{ post.creatorPhone }}</p>
+          </div>
+          <div>
+            <i class="fa fa-globe"></i>
+            <p>
+              {{ post.creatorBigCity }} ,
+              {{ post.creatorCity }}
+            </p>
+          </div>
+        </div>
+        <div class="post-text">
+          <i class="fa fa-pen"></i>
+          <p>{{ post.postText }}</p>
+        </div>
+        <div class="post-images" *ngIf="post.postImages.length > 0">
+          <img
+            [ngStyle]="{
+              width: post.postImages.length === 1 ? '100%' : '50%'
+            }"
+            *ngFor="let imgUrl of post.postImages"
+            (click)="displayImage(imgUrl)"
+            [src]="imgUrl"
+            alt=""
+          />
+        </div>
+        <div *ngIf="showPostControls" class="post-controls">
+          <button
+            *ngIf="post.creator._id === userId || isAdmin"
+            (click)="onDeletePost(post._id)"
+            class="btn btn-danger"
+          >
+            <i class="fa fa-trash"></i>
+            حذف
+          </button>
+          <button class="btn btn-dark" (click)="onAddComment(post._id)">
+            <i class="fa fa-comment"></i>
+            تعليق
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="alert-post-delete" *ngIf="deleltePost && language === 'arb'">
+  <app-alert-danger [errorMessage]="'تم الحذف'"></app-alert-danger>
+</div>
+<!--#############################################################################################################-->
+<div *ngIf="language === 'eng'" class="container engVersion">
+  <div class="row">
+    <div *ngFor="let post of posts.reverse()">
+      <div class="single-post">
+        <div
+          class="post-job"
+          style="
+            background-color: green;
+            right: 0%;
+            left: auto;
+            border-radius: 0px 0px 0px 30px;
+          "
+          [ngStyle]="{
+            backgroundColor: post.createByWorker ? '#f00' : 'green'
+          }"
+        >
+          <span>{{ post.job }}</span>
+        </div>
+        <div
+          [title]="'view account' + ' ' + post.creator.userName"
+          class="post-header"
+        >
+          <a (click)="onGetUser(post.creator._id)"
+            ><header>
+              <img
+                style="float: left"
+                [src]="post.creator.profileImage"
+                [alt]="post.creator.userName"
+              />
+              <h5>{{ post.creator.userName }}</h5>
+              <div class="post-date">
+                <p>{{ post.postDate }}</p>
+              </div>
+            </header>
+          </a>
+        </div>
+
+        <div class="post-address-phone" style="text-align: left">
+          <div>
+            <i class="fa fa-phone" style="float: left"></i>
+            <p>{{ post.creatorPhone }}</p>
+          </div>
+          <div style="text-align: left">
+            <i class="fa fa-map-marker" style="float: left"></i>
+            <p>
+              {{ post.creatorBigCity }} ,
+              {{ post.creatorCity }}
+            </p>
+          </div>
+        </div>
+        <div class="post-text" style="text-align: left">
+          <i class="fa fa-pen" style="float: left"></i>
+          <p>{{ post.postText }}</p>
+        </div>
+        <div class="post-images" *ngIf="post.postImages.length > 0">
+          <img
+            [ngStyle]="{
+              width: post.postImages.length === 1 ? '100%' : '50%'
+            }"
+            *ngFor="let imgUrl of post.postImages"
+            (click)="displayImage(imgUrl)"
+            [src]="imgUrl"
+            alt=""
+          />
+        </div>
+        <div *ngIf="showPostControls" class="post-controls">
+          <button
+            *ngIf="post.creator._id === userId || isAdmin"
+            (click)="onDeletePost(post._id)"
+            class="btn btn-danger"
+          >
+            <i class="fa fa-trash" style="float: none"></i>
+            delete
+          </button>
+          <button class="btn btn-dark" (click)="onAddComment(post._id)">
+            <i class="fa fa-comment" style="float: none"></i>
+            comment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="alert-post-delete" *ngIf="deleltePost && language === 'eng'">
+  <app-alert-danger [errorMessage]="'post deleted'"></app-alert-danger>
+</div>
+<!--#####################################################33-->
+<section *ngIf="displayedImageUrl" class="displayIamge">
+  <i class="fa fa-times" (click)="closeImage()"></i>
+  <img [src]="displayedImageUrl" alt="" />
+</section>

@@ -1,0 +1,104 @@
+<div class="container" *ngIf="language === 'arb'">
+  <div
+    *ngIf="reports.length"
+    class="row flex-column justify-content-center align-items-center"
+  >
+    <div
+      class="col-md-6"
+      *ngIf="reportDeleted"
+      style="position: fixed; bottom: 0px; width: 500px; z-index: 999"
+    >
+      <app-alert-danger [errorMessage]="'تم الحذف'"></app-alert-danger>
+    </div>
+
+    <div class="col-md-6">
+      <h4>
+        الشكاوي
+        <span>{{ reports.length }}</span>
+      </h4>
+    </div>
+    <div *ngFor="let report of reports.reverse()" class="col-md-6">
+      <div>
+        <header [routerLink]="['/profile', report.creator._id]">
+          <img [src]="report.creator.profileImage" alt="" />
+          <h6>
+            {{ report.creator.userName }} <span>{{ report.reportDate }}</span>
+          </h6>
+        </header>
+        <p>{{ report.reportMessage }}</p>
+        <div class="btn-ctr">
+          <button
+            [routerLink]="['/profile', report.reportTo]"
+            class="btn btn-light"
+          >
+            <i class="fa fa-eye"></i>
+          </button>
+          <button class="btn" (click)="deleteRport(report._id)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!reports.length">
+    <h5 class="text-center" style="margin-top: 50px">لاتوجد شكاوي حاليا</h5>
+  </div>
+</div>
+<!--###############################################################################-->
+<!--###############################################################################-->
+<!--###############################################################################-->
+<!--###############################################################################-->
+<!--###############################################################################-->
+
+<div class="container engVersion" *ngIf="language === 'eng'">
+  <div
+    *ngIf="reports.length"
+    class="row flex-column justify-content-center align-items-center"
+  >
+    <div
+      class="col-md-6"
+      *ngIf="reportDeleted"
+      style="position: fixed; bottom: 0px; width: 500px; z-index: 999"
+    >
+      <app-alert-danger [errorMessage]="'Report Deleted'"></app-alert-danger>
+    </div>
+
+    <div class="col-md-6">
+      <h4>
+        Report
+        <span>{{ reports.length }}</span>
+      </h4>
+    </div>
+    <div *ngFor="let report of reports.reverse()" class="col-md-6">
+      <div>
+        <header [routerLink]="['/profile', report.creator._id]">
+          <img [src]="report.creator.profileImage" alt="" style="float: left" />
+          <h6>
+            {{ report.creator.userName }} <span>{{ report.reportDate }}</span>
+          </h6>
+        </header>
+        <p style="border-radius: 00px 30px 30px 30px">
+          {{ report.reportMessage }}
+        </p>
+        <div class="btn-ctr">
+          <button
+            [routerLink]="['/profile', report.reportTo]"
+            class="btn btn-light"
+          >
+            <i class="fa fa-eye"></i>
+          </button>
+          <button
+            class="btn"
+            (click)="deleteRport(report._id)"
+            style="float: right"
+          >
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!reports.length">
+    <h5 class="text-center" style="margin-top: 50px">No reports Now</h5>
+  </div>
+</div>

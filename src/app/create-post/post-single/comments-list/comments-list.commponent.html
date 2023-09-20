@@ -1,0 +1,76 @@
+<div class="post-comments" *ngIf="language==='arb'">
+  <h5
+    style="
+      padding: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 1) !important;
+    "
+  >
+    {{postComments.length}} تعليق
+  </h5>
+  <div *ngFor="let comment of postComments.reverse()" class="single-comment">
+    <header
+      [title]="' عرض حساب' +' ' +comment.creator.userName "
+      (click)="onGetUser(comment.creator._id)"
+    >
+      <img
+        [src]="comment.creator.profileImage"
+        [alt]="comment.creator.userName"
+      />
+      <h6>{{ comment.creator.userName }}</h6>
+      <span>{{ comment.commentDate }}</span>
+    </header>
+    <div class="commentText">
+      <p>{{ comment.commentText }}</p>
+    </div>
+    <div class="commentImages" *ngIf="comment.commentImages.length > 0">
+      <img *ngFor="let img of comment.commentImages" [src]="img" alt="" />
+    </div>
+    <div *ngIf="userId === comment.creator._id" class="deleteIcon">
+      <a (click)="onDeleteComment(comment._id)"><i class="fa fa-trash"></i></a>
+    </div>
+  </div>
+</div>
+<!--
+  ###############################################
+-->
+<div class="post-comments engVersion" *ngIf="language==='eng'">
+  <h5
+    style="
+      padding: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 1) !important;
+    "
+  >
+    {{postComments.length}} comment
+  </h5>
+  <div *ngFor="let comment of postComments.reverse()" class="single-comment">
+    <header
+      [title]="'view account' +' ' +comment.creator.userName "
+      (click)="onGetUser(comment.creator._id)"
+    >
+      <img
+        style="float: left; margin-right: 10px"
+        [src]="comment.creator.profileImage"
+        [alt]="comment.creator.userName"
+      />
+      <h6>{{ comment.creator.userName }}</h6>
+      <span>{{ comment.commentDate }}</span>
+    </header>
+    <div class="commentText">
+      <p>{{ comment.commentText }}</p>
+    </div>
+    <div class="commentImages" *ngIf="comment.commentImages.length > 0">
+      <img *ngFor="let img of comment.commentImages" [src]="img" alt="" />
+    </div>
+    <div
+      *ngIf="userId === comment.creator._id"
+      class="deleteIcon"
+      style="text-align: right"
+    >
+      <a (click)="onDeleteComment(comment._id)"><i class="fa fa-trash"></i></a>
+    </div>
+  </div>
+</div>

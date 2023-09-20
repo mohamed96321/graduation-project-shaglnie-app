@@ -1,0 +1,467 @@
+<div *ngIf="language === 'arb'" class="container">
+  <h2>نشر وظيفه</h2>
+  <form class="row" [formGroup]="postForm" (ngSubmit)="onAddPost()">
+    <div class="col-sm-6 col-md-3">
+      <div class="input-container" class="form-group">
+        <label for=""
+          ><img src="../../assets/img/download.png" alt="" />الوظيفه</label
+        >
+        <input type="text" placeholder="الوظيفه" formControlName="job" />
+        <i
+          class="fa fa-check"
+          *ngIf="postForm.get('job').touched && postForm.get('job').valid"
+        ></i>
+        <i
+          class="fa fa-exclamation-circle"
+          *ngIf="postForm.get('job').touched && postForm.get('job').invalid"
+        ></i>
+      </div>
+      <div
+        class="input-error"
+        *ngIf="postForm.get('job').errors && postForm.get('job').touched"
+      >
+        <p>
+          <span *ngIf="postForm.get('job').errors['required']"
+            >الوظيفه مطلوبه</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="input-container" class="form-group">
+        <label for=""
+          ><img src="../../assets/img/locjpg.jpg" alt="" />المحافظه</label
+        >
+        <input
+          type="text"
+          placeholder="المحافظه"
+          formControlName="creatorBigCity"
+        />
+        <i
+          class="fa fa-check"
+          *ngIf="
+            postForm.get('creatorBigCity').touched &&
+            postForm.get('creatorBigCity').valid
+          "
+        ></i>
+        <i
+          class="fa fa-exclamation-circle"
+          *ngIf="
+            postForm.get('creatorBigCity').touched &&
+            postForm.get('creatorBigCity').invalid
+          "
+        ></i>
+      </div>
+      <div
+        class="input-error"
+        *ngIf="
+          postForm.get('creatorBigCity').errors &&
+          postForm.get('creatorBigCity').touched
+        "
+      >
+        <p>
+          <span *ngIf="postForm.get('creatorBigCity').errors['required']"
+            >المحافظه مطلوبه</span
+          >
+        </p>
+      </div>
+    </div>
+    <br />
+    <div class="col-sm-6 col-md-3">
+      <div class="input-container" class="form-group">
+        <label for=""
+          ><img src="../../assets/img/125296.png" alt="" />المدينه</label
+        >
+        <input
+          type="text"
+          placeholder="المدينه"
+          formControlName="creatorCity"
+        />
+        <i
+          class="fa fa-check"
+          *ngIf="
+            postForm.get('creatorCity').touched &&
+            postForm.get('creatorCity').valid
+          "
+        ></i>
+        <i
+          class="fa fa-exclamation-circle"
+          *ngIf="
+            postForm.get('creatorCity').touched &&
+            postForm.get('creatorCity').invalid
+          "
+        ></i>
+      </div>
+      <div
+        class="input-error"
+        *ngIf="
+          postForm.get('creatorCity').errors &&
+          postForm.get('creatorCity').touched
+        "
+      >
+        <p>
+          <span *ngIf="postForm.get('creatorCity').errors['required']"
+            >المدينه مطلوبه</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="input-container" class="form-group">
+        <label for=""
+          ><img src="../../assets/img/telephone.png" alt="" /> رقم الهاتف
+        </label>
+        <input
+          type="number"
+          placeholder="رقم الهاتف"
+          formControlName="creatorPhone"
+        />
+        <i
+          class="fa fa-check"
+          *ngIf="
+            postForm.get('creatorPhone').touched &&
+            postForm.get('creatorPhone').valid
+          "
+        ></i>
+        <i
+          class="fa fa-exclamation-circle"
+          *ngIf="
+            postForm.get('creatorPhone').touched &&
+            postForm.get('creatorPhone').invalid
+          "
+        ></i>
+      </div>
+
+      <div
+        class="input-error"
+        *ngIf="
+          postForm.get('creatorPhone').errors &&
+          postForm.get('creatorPhone').touched
+        "
+      >
+        <p>
+          <span *ngIf="postForm.get('creatorPhone').errors['required']"
+            >الهاتف مطلوبه</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-3">
+      <div class="input-container" class="form-group">
+        <label for=""> <i class="fa fa-pen"></i>كتابه نص</label>
+        <textarea
+          style="height: 80px; line-height: normal"
+          type="text"
+          formControlName="postText"
+        ></textarea>
+        <i
+          class="fa fa-check"
+          *ngIf="
+            postForm.get('postText').touched && postForm.get('postText').valid
+          "
+        ></i>
+        <i
+          class="fa fa-exclamation-circle"
+          *ngIf="
+            postForm.get('postText').touched && postForm.get('postText').invalid
+          "
+        ></i>
+      </div>
+      <div
+        class="input-error"
+        *ngIf="
+          postForm.get('postText').errors && postForm.get('postText').touched
+        "
+      >
+        <p>
+          <span *ngIf="postForm.get('postText').errors['required']">
+            مطلوبه</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class="images-container" style="margin-right: 20px">
+      <a (click)="f.click()"><i class="fa fa-image"></i> ارفاق بعض الصور</a>
+      <input
+        type="file"
+        multiple
+        #f
+        style="display: none"
+        (change)="onImagesPicked($event)"
+      />
+      <div *ngIf="postImages.length > 0" class="images-preview">
+        <img *ngFor="let img of postImages" [src]="img" alt="" />
+      </div>
+    </div>
+    <div style="margin-right: 20px">
+      <input type="checkbox" formControlName="createByWorker" id="myCheck" />
+      <label for="myCheck">نشر كحرفي</label>
+    </div>
+    <div *ngIf="postForm.valid">
+      <button [disabled]="loading">
+        <i class="fa fa-paper-plane"></i> نشر
+      </button>
+    </div>
+  </form>
+</div>
+<section
+  *ngIf="(postCreated || errorMessage || loading) && language === 'arb'"
+  class="create-post-navigations"
+>
+  <div class="conatiner">
+    <div
+      style="margin: 50px auto"
+      class="row justify-content-center align-items-center flex-column"
+    >
+      <div class="col-md-6" *ngIf="loading">
+        <app-loading class="text-center"></app-loading>
+      </div>
+      <div class="col-md-6" *ngIf="!loading && errorMessage">
+        <app-alert-danger [errorMessage]="errorMessage"></app-alert-danger>
+      </div>
+      <div class="col-md-6" *ngIf="!loading && postCreated">
+        <app-alert-success [successMessage]="'تم النشر'"></app-alert-success>
+      </div>
+    </div>
+  </div>
+</section>
+<!--#################################################3-->
+<!--#################################################3-->
+<!--#################################################3-->
+
+<div
+  *ngIf="language === 'eng'"
+  class="container engVersion"
+  style="text-align: left"
+>
+  <h2>create job</h2>
+  <form class="row" [formGroup]="postForm" (ngSubmit)="onAddPost()">
+    <div class="col-sm-6 col-md-3">
+      <div class="input-container" class="form-group">
+        <label for=""
+          ><img src="../../assets/img/download.png" alt="" /> job</label
+        >
+        <input type="text" placeholder="job..." formControlName="job" />
+        <i
+          class="fa fa-check"
+          *ngIf="postForm.get('job').touched && postForm.get('job').valid"
+        ></i>
+        <i
+          class="fa fa-exclamation-circle"
+          *ngIf="postForm.get('job').touched && postForm.get('job').invalid"
+        ></i>
+      </div>
+      <div
+        class="input-error"
+        *ngIf="postForm.get('job').errors && postForm.get('job').touched"
+      >
+        <p>
+          <span *ngIf="postForm.get('job').errors['required']"
+            >job is required</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="input-container" class="form-group">
+        <label for=""
+          ><img src="../../assets/img/locjpg.jpg" alt="" /> state</label
+        >
+        <input
+          type="text"
+          placeholder="state..."
+          formControlName="creatorBigCity"
+        />
+        <i
+          class="fa fa-check"
+          *ngIf="
+            postForm.get('creatorBigCity').touched &&
+            postForm.get('creatorBigCity').valid
+          "
+        ></i>
+        <i
+          class="fa fa-exclamation-circle"
+          *ngIf="
+            postForm.get('creatorBigCity').touched &&
+            postForm.get('creatorBigCity').invalid
+          "
+        ></i>
+      </div>
+      <div
+        class="input-error"
+        *ngIf="
+          postForm.get('creatorBigCity').errors &&
+          postForm.get('creatorBigCity').touched
+        "
+      >
+        <p>
+          <span *ngIf="postForm.get('creatorBigCity').errors['required']"
+            >state is required</span
+          >
+        </p>
+      </div>
+    </div>
+    <br />
+    <div class="col-sm-6 col-md-3">
+      <div class="input-container" class="form-group">
+        <label for=""
+          ><img src="../../assets/img/125296.png" alt="" /> city</label
+        >
+        <input
+          type="text"
+          placeholder="city..."
+          formControlName="creatorCity"
+        />
+        <i
+          class="fa fa-check"
+          *ngIf="
+            postForm.get('creatorCity').touched &&
+            postForm.get('creatorCity').valid
+          "
+        ></i>
+        <i
+          class="fa fa-exclamation-circle"
+          *ngIf="
+            postForm.get('creatorCity').touched &&
+            postForm.get('creatorCity').invalid
+          "
+        ></i>
+      </div>
+      <div
+        class="input-error"
+        *ngIf="
+          postForm.get('creatorCity').errors &&
+          postForm.get('creatorCity').touched
+        "
+      >
+        <p>
+          <span *ngIf="postForm.get('creatorCity').errors['required']"
+            >city is required</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="input-container" class="form-group">
+        <label for=""
+          ><img src="../../assets/img/telephone.png" alt="" /> phone number
+        </label>
+        <input
+          type="number"
+          placeholder="phone number..."
+          formControlName="creatorPhone"
+        />
+        <i
+          class="fa fa-check"
+          *ngIf="
+            postForm.get('creatorPhone').touched &&
+            postForm.get('creatorPhone').valid
+          "
+        ></i>
+        <i
+          class="fa fa-exclamation-circle"
+          *ngIf="
+            postForm.get('creatorPhone').touched &&
+            postForm.get('creatorPhone').invalid
+          "
+        ></i>
+      </div>
+
+      <div
+        class="input-error"
+        *ngIf="
+          postForm.get('creatorPhone').errors &&
+          postForm.get('creatorPhone').touched
+        "
+      >
+        <p>
+          <span *ngIf="postForm.get('creatorPhone').errors['required']"
+            >phone number is required</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-4">
+      <div class="input-container" class="form-group">
+        <label for=""> <i class="fa fa-pen"></i> job description</label>
+        <textarea
+          style="height: 80px; line-height: normal"
+          type="text"
+          formControlName="postText"
+          placeholder="job description..."
+        ></textarea>
+        <i
+          class="fa fa-check"
+          *ngIf="
+            postForm.get('postText').touched && postForm.get('postText').valid
+          "
+        ></i>
+        <i
+          class="fa fa-exclamation-circle"
+          *ngIf="
+            postForm.get('postText').touched && postForm.get('postText').invalid
+          "
+        ></i>
+      </div>
+      <div
+        class="input-error"
+        *ngIf="
+          postForm.get('postText').errors && postForm.get('postText').touched
+        "
+      >
+        <p>
+          <span *ngIf="postForm.get('postText').errors['required']">
+            job description is required</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class="images-container" style="margin-right: 20px">
+      <a (click)="f.click()"><i class="fa fa-image"></i>upload photos</a>
+      <input
+        type="file"
+        multiple
+        #f
+        style="display: none"
+        (change)="onImagesPicked($event)"
+      />
+      <div *ngIf="postImages.length > 0" class="images-preview">
+        <img *ngFor="let img of postImages" [src]="img" alt="" />
+      </div>
+    </div>
+    <div style="margin-right: 20px">
+      <input type="checkbox" formControlName="createByWorker" id="myCheck" />
+      <label for="myCheck">create as worker</label>
+    </div>
+    <div *ngIf="postForm.valid">
+      <button [disabled]="loading">
+        <i class="fa fa-paper-plane"></i> post
+      </button>
+    </div>
+  </form>
+</div>
+<section
+  *ngIf="(postCreated || errorMessage || loading) && language === 'eng'"
+  class="create-post-navigations"
+>
+  <div class="conatiner">
+    <div
+      style="margin: 50px auto"
+      class="row justify-content-center align-items-center flex-column"
+    >
+      <div class="col-md-6" *ngIf="loading">
+        <app-loading class="text-center"></app-loading>
+      </div>
+      <div class="col-md-6" *ngIf="!loading && errorMessage">
+        <app-alert-danger
+          [errorMessage]="'sign in to post your job'"
+        ></app-alert-danger>
+      </div>
+      <div class="col-md-6" *ngIf="!loading && postCreated">
+        <app-alert-success
+          [successMessage]="'job posted successfully'"
+        ></app-alert-success>
+      </div>
+    </div>
+  </div>
+</section>

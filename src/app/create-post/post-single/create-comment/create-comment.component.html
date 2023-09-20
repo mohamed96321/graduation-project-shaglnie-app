@@ -1,0 +1,62 @@
+<div class="create-comment">
+  <form
+    *ngIf="isAuthenticated"
+    style="width: 100%; height: 100%"
+    [formGroup]="commentForm"
+    (ngSubmit)="onAddComment()"
+  >
+    <a
+      [title]="language === 'arb' ? 'ارفاق بعض الصور' : 'upload photo'"
+      style="width: 5%"
+      (click)="file.click()"
+    >
+      <i class="fa fa-image"></i>
+    </a>
+    <input
+      type="file"
+      #file
+      style="display: none"
+      multiple
+      (change)="onImagePicker($event)"
+    />
+    <div style="width: 80%">
+      <input
+        type="text"
+        formControlName="commentText"
+        [placeholder]="language === 'arb' ? 'اكتب تعليق' : 'write comment...'"
+        class="form-control"
+      />
+    </div>
+    <div style="width: 10%">
+      <button
+        [disabled]="commentForm.invalid"
+        class="btn btn-secondary"
+        [textContent]="language === 'arb' ? 'تعليق' : 'send'"
+      ></button>
+    </div>
+  </form>
+  <div class="create-commentImages" *ngIf="commentImages">
+    <img
+      [ngStyle]="{ float: language === 'eng' ? 'left' : 'right' }"
+      *ngFor="let img of commentImages"
+      [src]="img"
+      alt=""
+    />
+  </div>
+  <div
+    class="alert alert-danger"
+    role="alert"
+    *ngIf="!isAuthenticated && language === 'arb'"
+  >
+    <strong> لا يمكنك التعليق برجاء تسجيل الدخول </strong>
+    <a [routerLink]="['/auth/signin']">تسجيل</a>
+  </div>
+  <div
+    class="alert alert-danger"
+    role="alert"
+    *ngIf="!isAuthenticated && language === 'eng'"
+  >
+    <strong>signin to add your comment </strong>
+    <a [routerLink]="['/auth/signin']">signin now!</a>
+  </div>
+</div>

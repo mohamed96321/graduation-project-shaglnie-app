@@ -1,0 +1,47 @@
+.row h2,
+.row > h5 {
+  margin: 25px auto;
+}
+.row > div > a {
+  color: black;
+  display: block;
+  text-decoration: none;
+  text-transform: none;
+  box-shadow: 1px 1px 3px #ccc;
+  padding: 25px;
+  padding-top: 0px;
+  margin: 25px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.row > div > a header i {
+  font-size: 25px;
+  background-color: var(--mainColor);
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  margin: 25px 0px;
+}
+.row > div > a header h5 {
+  font-size: 25px;
+}
+.row > div div.counter {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  background-color: var(--mainColor);
+  padding: 10px 15px;
+  color: #fff;
+}
+.engVersion .row > div div.counter {
+  left: auto;
+  right: 0px;
+}
+.engVersion .row > div > a header h5 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+  text-transform: capitalize;
+}

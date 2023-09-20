@@ -1,0 +1,26 @@
+form > div {
+  position: relative;
+}
+form div > i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--mainColor);
+}
+form input {
+  height: 50px;
+  border-radius: 50px;
+  text-indent: 30px;
+}
+form button {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  border: none;
+  color: #ffffff;
+  background-color: var(--mainColor);
+}
+.alert {
+  margin-top: 10px;
+  border-radius: 30px;
+}

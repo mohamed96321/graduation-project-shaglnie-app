@@ -1,0 +1,26 @@
+<section class="footer" *ngIf="language==='arb'">
+  <div class="container">
+    <h4>شكرا لزيارتكم</h4>
+    <ul>
+      <li>
+        <a routerLink="/post/search">البحث</a>
+      </li>
+      <li>
+        <a routerLink="/post/timeline">الوظائف</a>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="footer" *ngIf="language==='eng'">
+  <div class="container">
+    <h4>thanks for view</h4>
+    <ul>
+      <li>
+        <a routerLink="/post/search">search</a>
+      </li>
+      <li>
+        <a routerLink="/post/timeline">posted jobs</a>
+      </li>
+    </ul>
+  </div>
+</section>

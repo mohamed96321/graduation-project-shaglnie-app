@@ -1,0 +1,18 @@
+<section class="testimonials" [ngStyle]="{direction : language==='arb'? 'rtl':'ltr'}">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div *ngIf="!isAdmin" class="col-xs-12 col-sm-6 col-md-4">
+        <app-add-testimonial></app-add-testimonial>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-8">
+        <app-testimonial-list
+          *ngIf="testimonials.length !== 0"
+          [testimonials]="testimonials"
+        ></app-testimonial-list>
+        <div *ngIf="testimonials.length === 0" class="text-center">
+          <h6><strong [textContent]="language==='arb'?'كن اول من يشارك برأيه':'add fisrt opion' "></strong></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

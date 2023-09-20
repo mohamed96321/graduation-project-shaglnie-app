@@ -1,0 +1,44 @@
+<form #f="ngForm" (ngSubmit)="onAddTestimonial(f)" *ngIf="language==='arb'">
+  <div class="form-group">
+    <i class="fa fa-pen"></i>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="رايك"
+      name="userOpnion"
+      required
+      ngModel
+      #userOpnion="ngModel"
+    />
+  </div>
+  <button *ngIf="f.valid"><i class="fa fa-chevron-left"></i></button>
+</form>
+<div class="alert alert-danger" role="alert" *ngIf="errMsg &&language==='arb'">
+  {{ errMsg }}
+</div>
+<div class="alert alert-success" role="alert" *ngIf="successMsg&&language==='arb'">
+  {{ successMsg }}
+</div>
+<!--#############################################################-->
+<!--#############################################################-->
+<!--#############################################################-->
+<form #f="ngForm" (ngSubmit)="onAddTestimonial(f)" *ngIf="language==='eng'">
+  <div class="form-group">
+    <i class="fa fa-pen" style="left: 10px !important;right: auto !important"></i>
+    <input
+    style="direction: ltr;"
+      class="form-control"
+      type="text"
+      placeholder="your opinion..."
+      name="userOpnion"
+      required
+      ngModel
+      #userOpnion="ngModel"
+    />
+  </div>
+  <button *ngIf="f.valid"><i class="fa fa-chevron-right"></i></button>
+</form>
+<div class="alert alert-danger text-left" role="alert" *ngIf="errMsg&& language==='eng'">
+  some thing go wrong
+</div>
+<div class="alert alert-success text-left" role="alert" *ngIf="successMsg&&language==='eng'">your opinion added</div>

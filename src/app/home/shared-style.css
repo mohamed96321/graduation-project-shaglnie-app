@@ -1,0 +1,30 @@
+section {
+  margin: auto;
+  margin: 50px auto;
+}
+section .container > h1 {
+  color: var(--mainColor);
+  margin-bottom: 50px;
+  font-size: 32px;
+}
+section .container > p {
+  min-width: 300px;
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+}
+section .container .row > div {
+  margin-bottom: 25px;
+}
+section .container .row > div > div {
+  box-shadow: 1px 1px 5px #ccc;
+  padding: 25px;
+  border-radius: 30px;
+}
+section .container .row > div > div p {
+  color: #787878;
+  margin: 25px auto;
+}
+section .container .row > div > div > * {
+  margin-bottom: 25px;
+}

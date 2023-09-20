@@ -1,0 +1,32 @@
+<div id="usersTestimonials" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div
+      *ngFor="let testi of testimonials; let i = index"
+      class="carousel-item"
+      [ngClass]="{ active: i == 0 }"
+      data-interval="10000"
+    >
+      <div class="carousel-caption">
+        <p>{{ testi.reviewText }}</p>
+        <h6>{{ testi.creator.userName }}</h6>
+        <img [src]="testi.creator.profileImage" />
+      </div>
+    </div>
+  </div>
+  <a
+    class="carousel-control-prev"
+    href="#usersTestimonials"
+    role="button"
+    data-slide="prev"
+  >
+    <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+  </a>
+  <a
+    class="carousel-control-next"
+    href="#usersTestimonials"
+    role="button"
+    data-slide="next"
+  >
+    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+  </a>
+</div>

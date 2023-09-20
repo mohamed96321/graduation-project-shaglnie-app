@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --mainColor: #328bda;
+  /* --mainColor: #328bda;*/
+  /*  --mainColor: #f00;*/
+  /* --mainColor: #0077b5;*/
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  direction: rtl;
+  text-align: right;
+  overflow-x: hidden;
+  padding: 0px;
+  margin: 0px;
+}
+.engVersion {
+  text-align: left !important;
+  direction: ltr !important;
+  text-transform: capitalize !important;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+  font-weight: bold;
+}
+input.ng-touched.ng-invalid {
+  border: 1px solid #f00 !important;
+}
+input.ng-touched.ng-valid {
+  border: 1px solid #008800 !important;
+}
+button:focus {
+  outline: none;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

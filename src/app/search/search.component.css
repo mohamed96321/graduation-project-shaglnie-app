@@ -1,0 +1,54 @@
+.container {
+  margin-top: 25px;
+}
+form {
+  margin: auto;
+}
+form img {
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+}
+form > div {
+  margin: 5px;
+  width: 100%;
+}
+input {
+  display: block;
+  width: 100%;
+  width: 100%;
+  background-color: aliceblue;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+  text-indent: 10px;
+}
+input:focus {
+  outline: none;
+}
+input[type="checkbox"] {
+  display: inline-block;
+  width: 20px;
+  height: auto;
+  margin-top: 10px;
+}
+button {
+  display: inline-block;
+  margin-right: 20px;
+  width: 120px;
+  background-color: #1c7ed6;
+  color: #ffffff;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  border-radius: 30px;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid #f00;
+}
+span {
+  color: #f00;
+  font-size: 14px;
+  font-weight: bold;
+}

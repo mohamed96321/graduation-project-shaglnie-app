@@ -1,0 +1,44 @@
+<section class="banner" *ngIf="language==='arb'">
+  <div class="banner-content">
+    <div class="banner-text">
+      <h1>ابحث عن الوظيفة التي تناسب حياتك</h1>
+      <p>
+        "سيشغل عملك جزءا كبيرا من حياتك والطريقة الوحيدة لتحقيق الرضى الحقيقي هو
+        القيام بما تؤمن به انه عمل رائع. وأفضل طريقة لتقوم بعمل رائع هي ان تحب
+        ما تقوم به. اذا لم تجد ذلك بعد، فاستمر في البحث. لا تسقط."
+      </p>
+      <button>المزيد</button>
+    </div>
+    <div class="banner-search">
+      <button routerLink="/post/search">
+        <i class="fa fa-search"></i> بحث
+      </button>
+    </div>
+  </div>
+</section>
+<!--
+  #############################################
+-->
+<!--
+  #############################################
+--><!--
+  #############################################
+-->
+<section class="banner engVersion" *ngIf="language==='eng'">
+  <div class="banner-content">
+    <div class="banner-text">
+      <h1>Find the job that fits your life</h1>
+      <p>
+        "Your work will occupy a large part of your life and the only way to achieve true satisfaction is
+        Doing what you believe is great work. And the best way to do a great job is to love
+        what are you doing. If you haven't found it yet, keep searching.."
+      </p>
+      <button>more</button>
+    </div>
+    <div class="banner-search">
+      <button routerLink="/post/search">
+        <i class="fa fa-search"></i> search
+      </button>
+    </div>
+  </div>
+</section>

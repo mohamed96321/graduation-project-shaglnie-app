@@ -1,0 +1,78 @@
+<div class="container" *ngIf="language === 'arb'">
+  <div class="row">
+    <div>
+      <div class="header-container">
+        <img [src]="userData.profileImage" [alt]="userData.userName" />
+        <h4>{{ userData.userName }}</h4>
+      </div>
+      <div *ngIf="userData.job">
+        <p><i class="fa fa-briefcase"> </i>{{ userData.job }}</p>
+      </div>
+      <div *ngIf="userData._id === activeUserId || isAdminSaved">
+        <p><i class="fa fa-envelope"> </i>{{ userData.userEmail }}</p>
+      </div>
+      <div>
+        <p><i class="fa fa-phone"> </i> {{ userData.userPhone }}</p>
+      </div>
+      <div>
+        <p>
+          <i class="fa fa-map-marker"></i> {{ userData.userBigCity }} ,
+          {{ userData.userCity }}
+        </p>
+      </div>
+      <div class="button-container" *ngIf="userData._id === activeUserId">
+        <button class="edit" type="button" [routerLink]="['/profile/edit']">
+          <i class="fa fa-edit"></i>
+          تعديل
+        </button>
+        <button class="logout" type="button" (click)="onLogout()">
+          <i class="fa fa-sign-out-alt"></i> خروج
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--#############################################################-->
+
+<div
+  class="container"
+  *ngIf="language === 'eng'"
+  style="text-align: left; direction: ltr"
+>
+  <div class="row">
+    <div>
+      <div class="header-container">
+        <img
+          [src]="userData.profileImage"
+          [alt]="userData.userName"
+          style="margin-right: 10px"
+        />
+        <h4>{{ userData.userName }}</h4>
+      </div>
+      <div *ngIf="userData.job">
+        <p><i class="fa fa-briefcase"> </i>{{ userData.job }}</p>
+      </div>
+      <div *ngIf="userData._id === activeUserId || isAdminSaved">
+        <p><i class="fa fa-envelope"> </i>{{ userData.userEmail }}</p>
+      </div>
+      <div>
+        <p><i class="fa fa-phone"> </i> {{ userData.userPhone }}</p>
+      </div>
+      <div>
+        <p>
+          <i class="fa fa-map-marker"></i> {{ userData.userBigCity }} ,
+          {{ userData.userCity }}
+        </p>
+      </div>
+      <div class="button-container" *ngIf="userData._id === activeUserId">
+        <button class="edit" type="button" [routerLink]="['/profile/edit']">
+          <i class="fa fa-edit"></i>
+          edit
+        </button>
+        <button class="logout" type="button" (click)="onLogout()">
+          <i class="fa fa-sign-out-alt"></i> logout
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

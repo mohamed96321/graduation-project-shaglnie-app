@@ -1,0 +1,71 @@
+section {
+  margin-top: 20px;
+}
+.form-header h3 {
+  margin: 25px auto;
+}
+form div.input-errors {
+  color: #f00;
+  font-size: 13px;
+  font-weight: bold;
+}
+form > div.form-group {
+  position: relative;
+  margin: 25px auto;
+}
+form > div.form-group > i {
+  position: absolute;
+  top: 18px;
+  right: 13px;
+  color: var(--mainColor);
+}
+form > div.form-group > i.fa-check,
+form > div.form-group > i.fa-exclamation-circle {
+  width: 20px;
+  right: 90%;
+  color: green;
+}
+form > div.form-group > i.fa-exclamation-circle {
+  color: #f00;
+}
+form > div.form-group > input {
+  border-radius: 40px;
+  text-indent: 25px;
+  height: 50px;
+  background-color: #f0f8ff;
+  border: none;
+}
+form > div.form-group input[type="checkbox"] {
+  float: right;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+form > div.form-group.submit-button button {
+  display: inline-block;
+  height: 50px;
+  width: 100px;
+  border: none;
+  color: #ffffff;
+  background-color: var(--mainColor);
+  border-radius: 30px;
+}
+.form-footer div a {
+  color: #f00;
+  cursor: pointer;
+}
+/*++++++++++++++++*/
+
+.engVersion form div.form-group > i {
+  width: 20px;
+  float: left;
+  left: 10px;
+}
+.engVersion form div.form-group > i.fa-exclamation-circle,
+.engVersion form div.form-group > i.fa-check {
+  float: right;
+  left: 90% !important;
+}

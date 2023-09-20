@@ -1,0 +1,107 @@
+<div class="container" *ngIf="language === 'arb'">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">ارقام سريعه</h2>
+    </div>
+    <div class="col-md-6">
+      <a routerLink="/admin/users" [routerLinkActive]="'active'"
+        ><header>
+          <i class="fa fa-cogs"></i>
+          <h5>المستخدمين</h5>
+        </header>
+        <div class="counter">
+          <span>{{ counts.userCount }}</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a routerLink="/post/timeline">
+        <header>
+          <i class="fa fa-paper-plane"></i>
+          <h5>الوظائف</h5>
+        </header>
+        <div class="counter">
+          <span>{{ counts.postCount }}</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a href="">
+        <header>
+          <i class="fa fa-comment"></i>
+          <h5>التعليقات</h5>
+        </header>
+        <div class="counter">
+          <span>{{ counts.commentCount }}</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a [routerLink]="['/admin', 'reports']">
+        <header>
+          <i class="fa fa-flag-checkered"></i>
+          <h5>الشكاوي</h5>
+        </header>
+        <div class="counter">
+          <span>{{ counts.reportCount }}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<!--############################################################-->
+<!--############################################################-->
+<!--############################################################-->
+<!--############################################################-->
+
+<div class="container engVersion" *ngIf="language === 'eng'">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">quick statistics</h2>
+    </div>
+    <div class="col-md-6">
+      <a routerLink="/admin/users" [routerLinkActive]="'active'"
+        ><header>
+          <i class="fa fa-cogs"></i>
+          <h5>all users</h5>
+        </header>
+        <div class="counter">
+          <span>{{ counts.userCount }}</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a routerLink="/post/timeline">
+        <header>
+          <i class="fa fa-paper-plane"></i>
+          <h5>jobs</h5>
+        </header>
+        <div class="counter">
+          <span>{{ counts.postCount }}</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a href="">
+        <header>
+          <i class="fa fa-comment"></i>
+          <h5>comments</h5>
+        </header>
+        <div class="counter">
+          <span>{{ counts.commentCount }}</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a [routerLink]="['/admin', 'reports']">
+        <header>
+          <i class="fa fa-flag-checkered"></i>
+          <h5>reports</h5>
+        </header>
+        <div class="counter">
+          <span>{{ counts.reportCount }}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

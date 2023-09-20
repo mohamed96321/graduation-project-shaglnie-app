@@ -1,0 +1,34 @@
+/*BLOGS STYLE CSS ########################################################*/
+
+.blogs .single-blog {
+  text-align: center;
+}
+.blogs .single-blog p {
+  color: #787878;
+}
+.blogs .blog-img {
+  height: 200px;
+  width: 100%;
+}
+.blogs .blog-img > img {
+  height: 100%;
+  width: 100%;
+}
+.blogs ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 5px;
+}
+.blogs ul li i {
+  color: var(--mainColor);
+}
+.blogs .blog-button button {
+  height: 50px;
+  width: 80px;
+  border: none;
+  border-radius: 30px;
+  color: #ffffff;
+  background-color: var(--mainColor);
+  font-size: 16px;
+}
+/*BLOGS STYLE CSS ########################################################*/

@@ -1,0 +1,36 @@
+<div class="container">
+  <div
+    style="padding-top: 50px"
+    class="row justify-content-center align-items-center flex-column"
+  >
+    <div *ngIf="loading">
+      <app-loading></app-loading>
+    </div>
+    <div *ngIf="!loading && errMsg">
+      <app-alert-danger
+        [errorMessage]="errMsg"
+        *ngIf="errMsg"
+      ></app-alert-danger>
+    </div>
+    <div class="redo" *ngIf="!loading && errMsg">
+      <a href="/jobs">
+        <i class="fa fa-redo"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="!loading && !errMsg">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+      <job-links [postedJobs]="postedJobs"></job-links>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+      <app-posts-list
+        style="margin-top: 25px !important"
+        [posts]="posts"
+      ></app-posts-list>
+    </div>
+  </div>
+</div>
